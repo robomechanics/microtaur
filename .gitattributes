@@ -1,0 +1,6 @@
+*.npz binary
+*.png binary
+*.pdf binary
+*.sldprt binary
+*.sldasm binary
+*.step binary
