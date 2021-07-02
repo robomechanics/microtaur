@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name Teensy)(type Legacy)(uri ${KIPRJMOD}/teensy_library-master/teensy.lib)(options "")(descr ""))
+  (lib (name microtaur-teensy41)(type Legacy)(uri ${KIPRJMOD}/microtaur-teensy41.lib)(options "")(descr ""))
+  (lib (name microtaur-teensy41-rescue)(type Legacy)(uri ${KIPRJMOD}/microtaur-teensy41-rescue.lib)(options "")(descr ""))
+)

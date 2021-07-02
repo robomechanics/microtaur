@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name Teensy)(type KiCad)(uri ${KIPRJMOD}/teensy.pretty-master)(options "")(descr ""))
+  (lib (name microtaur-teensy41)(type KiCad)(uri ${KIPRJMOD}/microtaur-teensy41.pretty)(options "")(descr ""))
+)
