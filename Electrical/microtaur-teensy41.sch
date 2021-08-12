@@ -77,6 +77,8 @@ F 0 "U1" H 5450 5915 50  0000 C CNN
 F 1 "Teensy4.1" H 5450 5824 50  0000 C CNN
 F 2 "Teensy:Teensy41" H 5050 3750 50  0001 C CNN
 F 3 "" H 5050 3750 50  0001 C CNN
+F 4 "~" H 5450 3350 50  0001 C CNN "Part Number"
+F 5 "https://www.pjrc.com/store/teensy41.html" H 5450 3350 50  0001 C CNN "URL"
 	1    5450 3350
 	1    0    0    -1  
 $EndComp
@@ -112,6 +114,8 @@ F 0 "R1" H 10159 5596 50  0000 L CNN
 F 1 "10k" H 10159 5505 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 10100 5550 50  0001 C CNN
 F 3 "~" H 10100 5550 50  0001 C CNN
+F 4 "541-2795-2-ND" H 10100 5550 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/vishay-dale/RCS060310K0FKEA/5866941?s=N4IgTCBcDaIEoGEDKAGAbCgzARhQaRQDE8BRAQRAF0BfIA" H 10100 5550 50  0001 C CNN "URL"
 	1    10100 5550
 	1    0    0    -1  
 $EndComp
@@ -123,6 +127,8 @@ F 0 "R2" H 10159 5796 50  0000 L CNN
 F 1 "2.5k" H 10159 5705 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 10100 5750 50  0001 C CNN
 F 3 "~" H 10100 5750 50  0001 C CNN
+F 4 "541-RCS06032K49FKEATR-ND" H 10100 5750 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/vishay-dale/RCS06032K49FKEA/5868526?s=N4IgTCBcDaIEoGEDKAGAbCgzGA0gFgE4AxHAUQEEQBdAXyA" H 10100 5750 50  0001 C CNN "URL"
 	1    10100 5750
 	1    0    0    -1  
 $EndComp
@@ -146,41 +152,6 @@ Wire Wire Line
 	6900 1600 6550 1600
 Text Label 6900 1600 2    50   ~ 0
 BAT_MON
-$Comp
-L Connector_Generic:Conn_01x06 J1
-U 1 1 6094B3D5
-P 7850 5450
-F 0 "J1" H 7930 5442 50  0000 L CNN
-F 1 "Conn_01x06" H 7930 5351 50  0000 L CNN
-F 2 "Connector_JST:JST_SH_SM06B-SRSS-TB_1x06-1MP_P1.00mm_Horizontal" H 7850 5450 50  0001 C CNN
-F 3 "~" H 7850 5450 50  0001 C CNN
-	1    7850 5450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7300 5250 7650 5250
-Wire Wire Line
-	7300 5350 7650 5350
-Wire Wire Line
-	7300 5450 7650 5450
-Wire Wire Line
-	7300 5550 7650 5550
-Wire Wire Line
-	7300 5650 7650 5650
-Wire Wire Line
-	7300 5750 7650 5750
-Text Label 7300 5250 0    50   ~ 0
-PS2_DAT
-Text Label 7300 5350 0    50   ~ 0
-PS2_CMD
-Text Label 7300 5450 0    50   ~ 0
-ATT
-Text Label 7300 5550 0    50   ~ 0
-PS2_CLK
-Text Label 7300 5650 0    50   ~ 0
-5V
-Text Label 7300 5750 0    50   ~ 0
-GND
 Wire Wire Line
 	6550 2900 6900 2900
 Wire Wire Line
@@ -221,6 +192,8 @@ F 0 "C1" H 9592 5596 50  0000 L CNN
 F 1 "0.22uF" H 9350 5450 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9500 5550 50  0001 C CNN
 F 3 "~" H 9500 5550 50  0001 C CNN
+F 4 "2679-C0805X7R500-22MNETR-ND" H 9500 5550 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/venkel/C0805X7R500-224MNE/12327544" H 9500 5550 50  0001 C CNN "URL"
 	1    9500 5550
 	1    0    0    -1  
 $EndComp
@@ -411,6 +384,8 @@ F 0 "SER7" H 10580 3792 50  0000 L CNN
 F 1 "Conn_01x03" H 10580 3701 50  0000 L CNN
 F 2 "Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal" H 10500 3750 50  0001 C CNN
 F 3 "~" H 10500 3750 50  0001 C CNN
+F 4 "455-1803-2-ND" H 10500 3750 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/jst-sales-america-inc/SM03B-SRSS-TB-LF-SN/926709" H 10500 3750 50  0001 C CNN "URL"
 	1    10500 3750
 	1    0    0    -1  
 $EndComp
@@ -422,6 +397,8 @@ F 0 "SER1" H 10580 1392 50  0000 L CNN
 F 1 "Conn_01x03" H 10580 1301 50  0000 L CNN
 F 2 "Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal" H 10500 1350 50  0001 C CNN
 F 3 "~" H 10500 1350 50  0001 C CNN
+F 4 "455-1803-2-ND" H 10500 1350 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/jst-sales-america-inc/SM03B-SRSS-TB-LF-SN/926709" H 10500 1350 50  0001 C CNN "URL"
 	1    10500 1350
 	1    0    0    -1  
 $EndComp
@@ -433,6 +410,8 @@ F 0 "SER2" H 10580 1792 50  0000 L CNN
 F 1 "Conn_01x03" H 10580 1701 50  0000 L CNN
 F 2 "Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal" H 10500 1750 50  0001 C CNN
 F 3 "~" H 10500 1750 50  0001 C CNN
+F 4 "455-1803-2-ND" H 10500 1750 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/jst-sales-america-inc/SM03B-SRSS-TB-LF-SN/926709" H 10500 1750 50  0001 C CNN "URL"
 	1    10500 1750
 	1    0    0    -1  
 $EndComp
@@ -444,6 +423,8 @@ F 0 "SER6" H 10580 3392 50  0000 L CNN
 F 1 "Conn_01x03" H 10580 3301 50  0000 L CNN
 F 2 "Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal" H 10500 3350 50  0001 C CNN
 F 3 "~" H 10500 3350 50  0001 C CNN
+F 4 "455-1803-2-ND" H 10500 3350 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/jst-sales-america-inc/SM03B-SRSS-TB-LF-SN/926709" H 10500 3350 50  0001 C CNN "URL"
 	1    10500 3350
 	1    0    0    -1  
 $EndComp
@@ -455,6 +436,8 @@ F 0 "SER3" H 10580 2192 50  0000 L CNN
 F 1 "Conn_01x03" H 10580 2101 50  0000 L CNN
 F 2 "Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal" H 10500 2150 50  0001 C CNN
 F 3 "~" H 10500 2150 50  0001 C CNN
+F 4 "455-1803-2-ND" H 10500 2150 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/jst-sales-america-inc/SM03B-SRSS-TB-LF-SN/926709" H 10500 2150 50  0001 C CNN "URL"
 	1    10500 2150
 	1    0    0    -1  
 $EndComp
@@ -466,6 +449,8 @@ F 0 "SER8" H 10580 4192 50  0000 L CNN
 F 1 "Conn_01x03" H 10580 4101 50  0000 L CNN
 F 2 "Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal" H 10500 4150 50  0001 C CNN
 F 3 "~" H 10500 4150 50  0001 C CNN
+F 4 "455-1803-2-ND" H 10500 4150 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/jst-sales-america-inc/SM03B-SRSS-TB-LF-SN/926709" H 10500 4150 50  0001 C CNN "URL"
 	1    10500 4150
 	1    0    0    -1  
 $EndComp
@@ -477,6 +462,8 @@ F 0 "SER5" H 10580 2992 50  0000 L CNN
 F 1 "Conn_01x03" H 10580 2901 50  0000 L CNN
 F 2 "Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal" H 10500 2950 50  0001 C CNN
 F 3 "~" H 10500 2950 50  0001 C CNN
+F 4 "455-1803-2-ND" H 10500 2950 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/jst-sales-america-inc/SM03B-SRSS-TB-LF-SN/926709" H 10500 2950 50  0001 C CNN "URL"
 	1    10500 2950
 	1    0    0    -1  
 $EndComp
@@ -488,6 +475,8 @@ F 0 "SER4" H 10580 2592 50  0000 L CNN
 F 1 "Conn_01x03" H 10580 2501 50  0000 L CNN
 F 2 "Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal" H 10500 2550 50  0001 C CNN
 F 3 "~" H 10500 2550 50  0001 C CNN
+F 4 "455-1803-2-ND" H 10500 2550 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/jst-sales-america-inc/SM03B-SRSS-TB-LF-SN/926709" H 10500 2550 50  0001 C CNN "URL"
 	1    10500 2550
 	1    0    0    -1  
 $EndComp
@@ -510,6 +499,8 @@ F 0 "PWR1" H 10918 5425 50  0000 C CNN
 F 1 "Conn_01x02" H 10918 5516 50  0000 C CNN
 F 2 "Connector_AMASS:AMASS_XT30U-F_1x02_P5.0mm_Vertical" H 11000 5750 50  0001 C CNN
 F 3 "~" H 11000 5750 50  0001 C CNN
+F 4 "~" H 11000 5750 50  0001 C CNN "Part Number"
+F 5 "https://hobbyking.com/en_us/xt30u-m-f-male-female-5pairs-per-bag.html?queryID=&objectID=72776&indexName=hbk_live_products_analytics" H 11000 5750 50  0001 C CNN "URL"
 	1    11000 5750
 	1    0    0    1   
 $EndComp
@@ -532,6 +523,8 @@ F 0 "H3" H 850 7296 50  0000 L CNN
 F 1 "MountingHole" H 850 7205 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2" H 750 7250 50  0001 C CNN
 F 3 "~" H 750 7250 50  0001 C CNN
+F 4 "~" H 750 7250 50  0001 C CNN "Part Number"
+F 5 "~" H 750 7250 50  0001 C CNN "URL"
 	1    750  7250
 	1    0    0    -1  
 $EndComp
@@ -543,6 +536,8 @@ F 0 "H7" H 1100 7296 50  0000 L CNN
 F 1 "MountingHole" H 1100 7205 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2" H 1000 7250 50  0001 C CNN
 F 3 "~" H 1000 7250 50  0001 C CNN
+F 4 "~" H 1000 7250 50  0001 C CNN "Part Number"
+F 5 "~" H 1000 7250 50  0001 C CNN "URL"
 	1    1000 7250
 	1    0    0    -1  
 $EndComp
@@ -554,6 +549,8 @@ F 0 "H8" H 1100 7496 50  0000 L CNN
 F 1 "MountingHole" H 1100 7405 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2" H 1000 7450 50  0001 C CNN
 F 3 "~" H 1000 7450 50  0001 C CNN
+F 4 "~" H 1000 7450 50  0001 C CNN "Part Number"
+F 5 "~" H 1000 7450 50  0001 C CNN "URL"
 	1    1000 7450
 	1    0    0    -1  
 $EndComp
@@ -565,6 +562,8 @@ F 0 "H4" H 850 7496 50  0000 L CNN
 F 1 "MountingHole" H 850 7405 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2" H 750 7450 50  0001 C CNN
 F 3 "~" H 750 7450 50  0001 C CNN
+F 4 "~" H 750 7450 50  0001 C CNN "Part Number"
+F 5 "~" H 750 7450 50  0001 C CNN "URL"
 	1    750  7450
 	1    0    0    -1  
 $EndComp
@@ -576,6 +575,8 @@ F 0 "H2" H 850 7046 50  0000 L CNN
 F 1 "MountingHole" H 850 6955 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2" H 750 7000 50  0001 C CNN
 F 3 "~" H 750 7000 50  0001 C CNN
+F 4 "~" H 750 7000 50  0001 C CNN "Part Number"
+F 5 "~" H 750 7000 50  0001 C CNN "URL"
 	1    750  7000
 	1    0    0    -1  
 $EndComp
@@ -587,6 +588,8 @@ F 0 "H6" H 1100 7046 50  0000 L CNN
 F 1 "MountingHole" H 1100 6955 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2" H 1000 7000 50  0001 C CNN
 F 3 "~" H 1000 7000 50  0001 C CNN
+F 4 "~" H 1000 7000 50  0001 C CNN "Part Number"
+F 5 "~" H 1000 7000 50  0001 C CNN "URL"
 	1    1000 7000
 	1    0    0    -1  
 $EndComp
@@ -598,6 +601,8 @@ F 0 "H5" H 1100 6846 50  0000 L CNN
 F 1 "MountingHole" H 1100 6755 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2" H 1000 6800 50  0001 C CNN
 F 3 "~" H 1000 6800 50  0001 C CNN
+F 4 "~" H 1000 6800 50  0001 C CNN "Part Number"
+F 5 "~" H 1000 6800 50  0001 C CNN "URL"
 	1    1000 6800
 	1    0    0    -1  
 $EndComp
@@ -609,6 +614,8 @@ F 0 "H1" H 850 6846 50  0000 L CNN
 F 1 "MountingHole" H 850 6755 50  0000 L CNN
 F 2 "MountingHole:MountingHole_2.2mm_M2" H 750 6800 50  0001 C CNN
 F 3 "~" H 750 6800 50  0001 C CNN
+F 4 "~" H 750 6800 50  0001 C CNN "Part Number"
+F 5 "~" H 750 6800 50  0001 C CNN "URL"
 	1    750  6800
 	1    0    0    -1  
 $EndComp
@@ -620,6 +627,8 @@ F 0 "MPOW1" H 9130 1192 50  0000 L CNN
 F 1 "Conn_01x02" H 9130 1101 50  0000 L CNN
 F 2 "Connector_AMASS:AMASS_XT30U-F_1x02_P5.0mm_Vertical" H 9050 1200 50  0001 C CNN
 F 3 "~" H 9050 1200 50  0001 C CNN
+F 4 "~" H 9050 1200 50  0001 C CNN "Part Number"
+F 5 "https://hobbyking.com/en_us/xt30u-m-f-male-female-5pairs-per-bag.html?queryID=&objectID=72776&indexName=hbk_live_products_analytics" H 9050 1200 50  0001 C CNN "URL"
 	1    9050 1200
 	1    0    0    -1  
 $EndComp
@@ -631,6 +640,8 @@ F 0 "MPOW2" H 9130 1492 50  0000 L CNN
 F 1 "Conn_01x02" H 9130 1401 50  0000 L CNN
 F 2 "Connector_AMASS:AMASS_XT30U-F_1x02_P5.0mm_Vertical" H 9050 1500 50  0001 C CNN
 F 3 "~" H 9050 1500 50  0001 C CNN
+F 4 "~" H 9050 1500 50  0001 C CNN "Part Number"
+F 5 "https://hobbyking.com/en_us/xt30u-m-f-male-female-5pairs-per-bag.html?queryID=&objectID=72776&indexName=hbk_live_products_analytics" H 9050 1500 50  0001 C CNN "URL"
 	1    9050 1500
 	1    0    0    -1  
 $EndComp
@@ -642,6 +653,8 @@ F 0 "MPOW3" H 9130 1792 50  0000 L CNN
 F 1 "Conn_01x02" H 9130 1701 50  0000 L CNN
 F 2 "Connector_AMASS:AMASS_XT30U-F_1x02_P5.0mm_Vertical" H 9050 1800 50  0001 C CNN
 F 3 "~" H 9050 1800 50  0001 C CNN
+F 4 "~" H 9050 1800 50  0001 C CNN "Part Number"
+F 5 "https://hobbyking.com/en_us/xt30u-m-f-male-female-5pairs-per-bag.html?queryID=&objectID=72776&indexName=hbk_live_products_analytics" H 9050 1800 50  0001 C CNN "URL"
 	1    9050 1800
 	1    0    0    -1  
 $EndComp
@@ -653,6 +666,8 @@ F 0 "MPOW4" H 9130 2092 50  0000 L CNN
 F 1 "Conn_01x02" H 9130 2001 50  0000 L CNN
 F 2 "Connector_AMASS:AMASS_XT30U-F_1x02_P5.0mm_Vertical" H 9050 2100 50  0001 C CNN
 F 3 "~" H 9050 2100 50  0001 C CNN
+F 4 "~" H 9050 2100 50  0001 C CNN "Part Number"
+F 5 "https://hobbyking.com/en_us/xt30u-m-f-male-female-5pairs-per-bag.html?queryID=&objectID=72776&indexName=hbk_live_products_analytics" H 9050 2100 50  0001 C CNN "URL"
 	1    9050 2100
 	1    0    0    -1  
 $EndComp
@@ -664,6 +679,8 @@ F 0 "MPOW5" H 9130 2392 50  0000 L CNN
 F 1 "Conn_01x02" H 9130 2301 50  0000 L CNN
 F 2 "Connector_AMASS:AMASS_XT30U-F_1x02_P5.0mm_Vertical" H 9050 2400 50  0001 C CNN
 F 3 "~" H 9050 2400 50  0001 C CNN
+F 4 "~" H 9050 2400 50  0001 C CNN "Part Number"
+F 5 "https://hobbyking.com/en_us/xt30u-m-f-male-female-5pairs-per-bag.html?queryID=&objectID=72776&indexName=hbk_live_products_analytics" H 9050 2400 50  0001 C CNN "URL"
 	1    9050 2400
 	1    0    0    -1  
 $EndComp
@@ -675,6 +692,8 @@ F 0 "MPOW6" H 9130 2692 50  0000 L CNN
 F 1 "Conn_01x02" H 9130 2601 50  0000 L CNN
 F 2 "Connector_AMASS:AMASS_XT30U-F_1x02_P5.0mm_Vertical" H 9050 2700 50  0001 C CNN
 F 3 "~" H 9050 2700 50  0001 C CNN
+F 4 "~" H 9050 2700 50  0001 C CNN "Part Number"
+F 5 "https://hobbyking.com/en_us/xt30u-m-f-male-female-5pairs-per-bag.html?queryID=&objectID=72776&indexName=hbk_live_products_analytics" H 9050 2700 50  0001 C CNN "URL"
 	1    9050 2700
 	1    0    0    -1  
 $EndComp
@@ -686,6 +705,8 @@ F 0 "MPOW7" H 9130 2992 50  0000 L CNN
 F 1 "Conn_01x02" H 9130 2901 50  0000 L CNN
 F 2 "Connector_AMASS:AMASS_XT30U-F_1x02_P5.0mm_Vertical" H 9050 3000 50  0001 C CNN
 F 3 "~" H 9050 3000 50  0001 C CNN
+F 4 "~" H 9050 3000 50  0001 C CNN "Part Number"
+F 5 "https://hobbyking.com/en_us/xt30u-m-f-male-female-5pairs-per-bag.html?queryID=&objectID=72776&indexName=hbk_live_products_analytics" H 9050 3000 50  0001 C CNN "URL"
 	1    9050 3000
 	1    0    0    -1  
 $EndComp
@@ -697,6 +718,8 @@ F 0 "MPOW8" H 9130 3292 50  0000 L CNN
 F 1 "Conn_01x02" H 9130 3201 50  0000 L CNN
 F 2 "Connector_AMASS:AMASS_XT30U-F_1x02_P5.0mm_Vertical" H 9050 3300 50  0001 C CNN
 F 3 "~" H 9050 3300 50  0001 C CNN
+F 4 "~" H 9050 3300 50  0001 C CNN "Part Number"
+F 5 "https://hobbyking.com/en_us/xt30u-m-f-male-female-5pairs-per-bag.html?queryID=&objectID=72776&indexName=hbk_live_products_analytics" H 9050 3300 50  0001 C CNN "URL"
 	1    9050 3300
 	1    0    0    -1  
 $EndComp
@@ -719,6 +742,8 @@ F 0 "J2" H 3157 4617 50  0000 C CNN
 F 1 "USB_A" H 3157 4526 50  0000 C CNN
 F 2 "Connector_USB:USB_A_Molex_105057_Vertical" H 3250 4100 50  0001 C CNN
 F 3 " ~" H 3250 4100 50  0001 C CNN
+F 4 "WM8672-ND" H 3100 4150 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/molex/1050570001/3045207?WT.z_cid=sp_900_0310_buynow&s=N4IgTCBcDaIIwAYCsyDsCNxAXQL5A" H 3100 4150 50  0001 C CNN "URL"
 	1    3100 4150
 	1    0    0    -1  
 $EndComp
@@ -974,6 +999,8 @@ F 0 "IMU1" H 5468 5625 50  0000 C CNN
 F 1 "Conn_01x04" H 5468 5716 50  0000 C CNN
 F 2 "Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical" H 5550 6050 50  0001 C CNN
 F 3 "~" H 5550 6050 50  0001 C CNN
+F 4 "455-1790-2-ND" H 5550 6050 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/jst-sales-america-inc/BM04B-SRSS-TB-LF-SN/926696" H 5550 6050 50  0001 C CNN "URL"
 	1    5550 6050
 	-1   0    0    1   
 $EndComp
@@ -989,8 +1016,10 @@ U 1 1 6097103B
 P 9100 5450
 F 0 "U3" H 9100 5692 50  0000 C CNN
 F 1 "LM7805_TO220" H 9100 5601 50  0000 C CNN
-F 2 "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown" H 9100 5675 50  0001 C CIN
-F 3 "http://www.fairchildsemi.com/ds/LM/LM7805.pdf" H 9100 5400 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 9100 5675 50  0001 C CIN
+F 3 "" H 9100 5400 50  0001 C CNN
+F 4 "NCP1117LPST33T3COSTR-ND" H 9100 5450 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/on-semiconductor/NCP1117LPST33T3G/2194024" H 9100 5450 50  0001 C CNN "URL"
 	1    9100 5450
 	-1   0    0    -1  
 $EndComp
