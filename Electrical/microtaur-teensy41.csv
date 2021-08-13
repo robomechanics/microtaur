@@ -1,0 +1,12 @@
+Reference, Quantity, Value, Footprint, Datasheet, Part Number, URL
+C1 ,1,0.22uF,Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder,~,2679-C0805X7R500-22MNETR-ND,https://www.digikey.com/en/products/detail/venkel/C0805X7R500-224MNE/12327544
+H1 H2 H3 H4 H5 H6 H7 H8 ,8,MountingHole,MountingHole:MountingHole_2.2mm_M2,~,~,~
+IMU1 ,1,Conn_01x04,Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical,~,455-1790-2-ND,https://www.digikey.com/en/products/detail/jst-sales-america-inc/BM04B-SRSS-TB-LF-SN/926696
+J1 ,1,Conn_01x06,Connector_JST:JST_SH_SM06B-SRSS-TB_1x06-1MP_P1.00mm_Horizontal,~,455-1806-2-ND,https://www.digikey.com/en/products/detail/jst-sales-america-inc/SM06B-SRSS-TB-LF-SN/926712
+J2 ,1,USB_A,Connector_USB:USB_A_Molex_105057_Vertical, ~,WM8672-ND,https://www.digikey.com/en/products/detail/molex/1050570001/3045207?WT.z_cid=sp_900_0310_buynow&s=N4IgTCBcDaIIwAYCsyDsCNxAXQL5A
+PWR1 MPOW1 MPOW2 MPOW3 MPOW4 MPOW5 MPOW6 MPOW7 MPOW8 ,9,Conn_01x02,Connector_AMASS:AMASS_XT30U-F_1x02_P5.0mm_Vertical,~,~,https://hobbyking.com/en_us/xt30u-m-f-male-female-5pairs-per-bag.html?queryID=&objectID=72776&indexName=hbk_live_products_analytics
+R1 ,1,10k,Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder,~,541-2795-2-ND,https://www.digikey.com/en/products/detail/vishay-dale/RCS060310K0FKEA/5866941?s=N4IgTCBcDaIEoGEDKAGAbCgzARhQaRQDE8BRAQRAF0BfIA
+R2 ,1,2.5k,Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder,~,541-RCS06032K49FKEATR-ND,https://www.digikey.com/en/products/detail/vishay-dale/RCS06032K49FKEA/5868526?s=N4IgTCBcDaIEoGEDKAGAbCgzGA0gFgE4AxHAUQEEQBdAXyA
+SER1 SER2 SER3 SER4 SER5 SER6 SER7 SER8 ,8,Conn_01x03,Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal,~,455-1803-2-ND,https://www.digikey.com/en/products/detail/jst-sales-america-inc/SM03B-SRSS-TB-LF-SN/926709
+U1 ,1,Teensy4.1,Teensy:Teensy41,,~,https://www.pjrc.com/store/teensy41.html
+U3 ,1,LM7805_TO220,Package_TO_SOT_SMD:SOT-223,,NCP1117LPST33T3COSTR-ND,https://www.digikey.com/en/products/detail/on-semiconductor/NCP1117LPST33T3G/2194024
