@@ -105,7 +105,7 @@ SCL
 Text Label 6050 5950 2    50   ~ 0
 SDA
 $Comp
-L Device:R_Small R1
+L microtaur-teensy41-rescue:R_Small-Device R1
 U 1 1 6093F1E2
 P 10100 5550
 F 0 "R1" H 10159 5596 50  0000 L CNN
@@ -116,7 +116,7 @@ F 3 "~" H 10100 5550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_Small R2
+L microtaur-teensy41-rescue:R_Small-Device R2
 U 1 1 6093F5F8
 P 10100 5750
 F 0 "R2" H 10159 5796 50  0000 L CNN
@@ -127,7 +127,7 @@ F 3 "~" H 10100 5750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0110
+L microtaur-teensy41-rescue:GND-power #PWR0110
 U 1 1 6093F92D
 P 10100 5850
 F 0 "#PWR0110" H 10100 5600 50  0001 C CNN
@@ -147,7 +147,7 @@ Wire Wire Line
 Text Label 6900 1600 2    50   ~ 0
 BAT_MON
 $Comp
-L Connector_Generic:Conn_01x06 J1
+L microtaur-teensy41-rescue:Conn_01x06-Connector_Generic J1
 U 1 1 6094B3D5
 P 7850 5450
 F 0 "J1" H 7930 5442 50  0000 L CNN
@@ -198,7 +198,7 @@ PS2_CS
 Text Label 4000 3000 0    50   ~ 0
 PS2_CLK
 $Comp
-L power:GND #PWR0111
+L microtaur-teensy41-rescue:GND-power #PWR0111
 U 1 1 60968EE0
 P 5750 6050
 F 0 "#PWR0111" H 5750 5800 50  0001 C CNN
@@ -214,7 +214,7 @@ Text Label 6050 6150 2    50   ~ 0
 5V
 Connection ~ 9500 5450
 $Comp
-L Device:C_Small C1
+L microtaur-teensy41-rescue:C_Small-Device C1
 U 1 1 60984EAC
 P 9500 5550
 F 0 "C1" H 9592 5596 50  0000 L CNN
@@ -252,7 +252,7 @@ Wire Wire Line
 Text Label 4000 1200 0    50   ~ 0
 GND
 $Comp
-L power:GND #PWR0108
+L microtaur-teensy41-rescue:GND-power #PWR0108
 U 1 1 6091D001
 P 10300 4250
 F 0 "#PWR0108" H 10300 4000 50  0001 C CNN
@@ -271,7 +271,7 @@ Wire Wire Line
 Wire Wire Line
 	9950 4050 10300 4050
 $Comp
-L power:GND #PWR0107
+L microtaur-teensy41-rescue:GND-power #PWR0107
 U 1 1 6091C656
 P 10300 3850
 F 0 "#PWR0107" H 10300 3600 50  0001 C CNN
@@ -290,7 +290,7 @@ Wire Wire Line
 Wire Wire Line
 	9950 3650 10300 3650
 $Comp
-L power:GND #PWR0106
+L microtaur-teensy41-rescue:GND-power #PWR0106
 U 1 1 6091BA78
 P 10300 3450
 F 0 "#PWR0106" H 10300 3200 50  0001 C CNN
@@ -309,7 +309,7 @@ Wire Wire Line
 Wire Wire Line
 	9950 3250 10300 3250
 $Comp
-L power:GND #PWR0105
+L microtaur-teensy41-rescue:GND-power #PWR0105
 U 1 1 6091B106
 P 10300 3050
 F 0 "#PWR0105" H 10300 2800 50  0001 C CNN
@@ -328,7 +328,7 @@ Wire Wire Line
 Wire Wire Line
 	9950 2850 10300 2850
 $Comp
-L power:GND #PWR0104
+L microtaur-teensy41-rescue:GND-power #PWR0104
 U 1 1 6091A8BE
 P 10300 2650
 F 0 "#PWR0104" H 10300 2400 50  0001 C CNN
@@ -347,7 +347,7 @@ Wire Wire Line
 Wire Wire Line
 	9950 2450 10300 2450
 $Comp
-L power:GND #PWR0103
+L microtaur-teensy41-rescue:GND-power #PWR0103
 U 1 1 60919F5E
 P 10300 2250
 F 0 "#PWR0103" H 10300 2000 50  0001 C CNN
@@ -366,7 +366,7 @@ Wire Wire Line
 Wire Wire Line
 	9950 2050 10300 2050
 $Comp
-L power:GND #PWR0102
+L microtaur-teensy41-rescue:GND-power #PWR0102
 U 1 1 609186A5
 P 10300 1850
 F 0 "#PWR0102" H 10300 1600 50  0001 C CNN
@@ -377,7 +377,7 @@ F 3 "" H 10300 1850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR0101
+L microtaur-teensy41-rescue:GND-power #PWR0101
 U 1 1 6091811A
 P 10300 1450
 F 0 "#PWR0101" H 10300 1200 50  0001 C CNN
@@ -404,7 +404,7 @@ Wire Wire Line
 Wire Wire Line
 	9950 1250 10300 1250
 $Comp
-L Connector_Generic:Conn_01x03 SER7
+L microtaur-teensy41-rescue:Conn_01x03-Connector_Generic SER7
 U 1 1 60916A47
 P 10500 3750
 F 0 "SER7" H 10580 3792 50  0000 L CNN
@@ -415,7 +415,7 @@ F 3 "~" H 10500 3750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x03 SER1
+L microtaur-teensy41-rescue:Conn_01x03-Connector_Generic SER1
 U 1 1 6090E039
 P 10500 1350
 F 0 "SER1" H 10580 1392 50  0000 L CNN
@@ -426,7 +426,7 @@ F 3 "~" H 10500 1350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x03 SER2
+L microtaur-teensy41-rescue:Conn_01x03-Connector_Generic SER2
 U 1 1 6090D835
 P 10500 1750
 F 0 "SER2" H 10580 1792 50  0000 L CNN
@@ -437,7 +437,7 @@ F 3 "~" H 10500 1750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x03 SER6
+L microtaur-teensy41-rescue:Conn_01x03-Connector_Generic SER6
 U 1 1 6090CC6A
 P 10500 3350
 F 0 "SER6" H 10580 3392 50  0000 L CNN
@@ -448,7 +448,7 @@ F 3 "~" H 10500 3350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x03 SER3
+L microtaur-teensy41-rescue:Conn_01x03-Connector_Generic SER3
 U 1 1 6090CC64
 P 10500 2150
 F 0 "SER3" H 10580 2192 50  0000 L CNN
@@ -459,7 +459,7 @@ F 3 "~" H 10500 2150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x03 SER8
+L microtaur-teensy41-rescue:Conn_01x03-Connector_Generic SER8
 U 1 1 608A52BA
 P 10500 4150
 F 0 "SER8" H 10580 4192 50  0000 L CNN
@@ -470,7 +470,7 @@ F 3 "~" H 10500 4150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x03 SER5
+L microtaur-teensy41-rescue:Conn_01x03-Connector_Generic SER5
 U 1 1 608A4971
 P 10500 2950
 F 0 "SER5" H 10580 2992 50  0000 L CNN
@@ -481,7 +481,7 @@ F 3 "~" H 10500 2950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x03 SER4
+L microtaur-teensy41-rescue:Conn_01x03-Connector_Generic SER4
 U 1 1 608A46A8
 P 10500 2550
 F 0 "SER4" H 10580 2592 50  0000 L CNN
@@ -492,7 +492,7 @@ F 3 "~" H 10500 2550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0109
+L microtaur-teensy41-rescue:GND-power #PWR0109
 U 1 1 6093DB86
 P 10800 5750
 F 0 "#PWR0109" H 10800 5500 50  0001 C CNN
@@ -503,7 +503,7 @@ F 3 "" H 10800 5750 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 PWR1
+L microtaur-teensy41-rescue:Conn_01x02-Connector_Generic PWR1
 U 1 1 608ADE78
 P 11000 5750
 F 0 "PWR1" H 10918 5425 50  0000 C CNN
@@ -514,7 +514,7 @@ F 3 "~" H 11000 5750 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L power:Vdrive #PWR0112
+L microtaur-teensy41-rescue:Vdrive-power #PWR0112
 U 1 1 608AFDF3
 P 9500 5450
 F 0 "#PWR0112" H 9300 5300 50  0001 C CNN
@@ -525,7 +525,7 @@ F 3 "" H 9500 5450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H3
+L microtaur-teensy41-rescue:MountingHole-Mechanical H3
 U 1 1 608B7434
 P 750 7250
 F 0 "H3" H 850 7296 50  0000 L CNN
@@ -536,7 +536,7 @@ F 3 "~" H 750 7250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H7
+L microtaur-teensy41-rescue:MountingHole-Mechanical H7
 U 1 1 608B8276
 P 1000 7250
 F 0 "H7" H 1100 7296 50  0000 L CNN
@@ -547,7 +547,7 @@ F 3 "~" H 1000 7250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H8
+L microtaur-teensy41-rescue:MountingHole-Mechanical H8
 U 1 1 608B8652
 P 1000 7450
 F 0 "H8" H 1100 7496 50  0000 L CNN
@@ -558,7 +558,7 @@ F 3 "~" H 1000 7450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H4
+L microtaur-teensy41-rescue:MountingHole-Mechanical H4
 U 1 1 608B8ABD
 P 750 7450
 F 0 "H4" H 850 7496 50  0000 L CNN
@@ -569,7 +569,7 @@ F 3 "~" H 750 7450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H2
+L microtaur-teensy41-rescue:MountingHole-Mechanical H2
 U 1 1 608B8C2F
 P 750 7000
 F 0 "H2" H 850 7046 50  0000 L CNN
@@ -580,7 +580,7 @@ F 3 "~" H 750 7000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H6
+L microtaur-teensy41-rescue:MountingHole-Mechanical H6
 U 1 1 608B8EC9
 P 1000 7000
 F 0 "H6" H 1100 7046 50  0000 L CNN
@@ -591,7 +591,7 @@ F 3 "~" H 1000 7000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H5
+L microtaur-teensy41-rescue:MountingHole-Mechanical H5
 U 1 1 608B9277
 P 1000 6800
 F 0 "H5" H 1100 6846 50  0000 L CNN
@@ -602,7 +602,7 @@ F 3 "~" H 1000 6800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H1
+L microtaur-teensy41-rescue:MountingHole-Mechanical H1
 U 1 1 608B9565
 P 750 6800
 F 0 "H1" H 850 6846 50  0000 L CNN
@@ -613,7 +613,7 @@ F 3 "~" H 750 6800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 MPOW1
+L microtaur-teensy41-rescue:Conn_01x02-Connector_Generic MPOW1
 U 1 1 608C3689
 P 9050 1200
 F 0 "MPOW1" H 9130 1192 50  0000 L CNN
@@ -624,7 +624,7 @@ F 3 "~" H 9050 1200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 MPOW2
+L microtaur-teensy41-rescue:Conn_01x02-Connector_Generic MPOW2
 U 1 1 608CC08E
 P 9050 1500
 F 0 "MPOW2" H 9130 1492 50  0000 L CNN
@@ -635,7 +635,7 @@ F 3 "~" H 9050 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 MPOW3
+L microtaur-teensy41-rescue:Conn_01x02-Connector_Generic MPOW3
 U 1 1 608CC4B3
 P 9050 1800
 F 0 "MPOW3" H 9130 1792 50  0000 L CNN
@@ -646,7 +646,7 @@ F 3 "~" H 9050 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 MPOW4
+L microtaur-teensy41-rescue:Conn_01x02-Connector_Generic MPOW4
 U 1 1 608CC6EE
 P 9050 2100
 F 0 "MPOW4" H 9130 2092 50  0000 L CNN
@@ -657,7 +657,7 @@ F 3 "~" H 9050 2100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 MPOW5
+L microtaur-teensy41-rescue:Conn_01x02-Connector_Generic MPOW5
 U 1 1 608CE9C3
 P 9050 2400
 F 0 "MPOW5" H 9130 2392 50  0000 L CNN
@@ -668,7 +668,7 @@ F 3 "~" H 9050 2400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 MPOW6
+L microtaur-teensy41-rescue:Conn_01x02-Connector_Generic MPOW6
 U 1 1 608CE9C9
 P 9050 2700
 F 0 "MPOW6" H 9130 2692 50  0000 L CNN
@@ -679,7 +679,7 @@ F 3 "~" H 9050 2700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 MPOW7
+L microtaur-teensy41-rescue:Conn_01x02-Connector_Generic MPOW7
 U 1 1 608CE9CF
 P 9050 3000
 F 0 "MPOW7" H 9130 2992 50  0000 L CNN
@@ -690,7 +690,7 @@ F 3 "~" H 9050 3000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 MPOW8
+L microtaur-teensy41-rescue:Conn_01x02-Connector_Generic MPOW8
 U 1 1 608CE9D5
 P 9050 3300
 F 0 "MPOW8" H 9130 3292 50  0000 L CNN
@@ -701,7 +701,7 @@ F 3 "~" H 9050 3300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:Vdrive #PWR0114
+L microtaur-teensy41-rescue:Vdrive-power #PWR0114
 U 1 1 608E45DF
 P 10800 5650
 F 0 "#PWR0114" H 10600 5500 50  0001 C CNN
@@ -735,7 +735,7 @@ Wire Wire Line
 Text Label 3600 4250 2    50   ~ 0
 D-
 $Comp
-L power:GND #PWR02
+L microtaur-teensy41-rescue:GND-power #PWR02
 U 1 1 6091D07A
 P 3100 4550
 F 0 "#PWR02" H 3100 4300 50  0001 C CNN
@@ -746,7 +746,7 @@ F 3 "" H 3100 4550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR01
+L microtaur-teensy41-rescue:GND-power #PWR01
 U 1 1 6091D5BC
 P 3000 4550
 F 0 "#PWR01" H 3000 4300 50  0001 C CNN
@@ -769,7 +769,7 @@ D-
 Wire Wire Line
 	4150 4050 4350 4050
 $Comp
-L power:GND #PWR03
+L microtaur-teensy41-rescue:GND-power #PWR03
 U 1 1 60925E27
 P 4350 4250
 F 0 "#PWR03" H 4350 4000 50  0001 C CNN
@@ -780,7 +780,7 @@ F 3 "" H 4350 4250 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR04
+L microtaur-teensy41-rescue:GND-power #PWR04
 U 1 1 6092511C
 P 4350 4350
 F 0 "#PWR04" H 4350 4100 50  0001 C CNN
@@ -791,7 +791,7 @@ F 3 "" H 4350 4350 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:Vdrive #PWR0115
+L microtaur-teensy41-rescue:Vdrive-power #PWR0115
 U 1 1 608EB897
 P 8850 1300
 F 0 "#PWR0115" H 8650 1150 50  0001 C CNN
@@ -802,7 +802,7 @@ F 3 "" H 8850 1300 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L power:GND #PWR0113
+L microtaur-teensy41-rescue:GND-power #PWR0113
 U 1 1 608DE0A0
 P 8850 1200
 F 0 "#PWR0113" H 8850 950 50  0001 C CNN
@@ -813,7 +813,7 @@ F 3 "" H 8850 1200 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L power:Vdrive #PWR0116
+L microtaur-teensy41-rescue:Vdrive-power #PWR0116
 U 1 1 6093B156
 P 8850 1600
 F 0 "#PWR0116" H 8650 1450 50  0001 C CNN
@@ -824,7 +824,7 @@ F 3 "" H 8850 1600 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L power:GND #PWR0117
+L microtaur-teensy41-rescue:GND-power #PWR0117
 U 1 1 6093B15C
 P 8850 1500
 F 0 "#PWR0117" H 8850 1250 50  0001 C CNN
@@ -835,7 +835,7 @@ F 3 "" H 8850 1500 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L power:Vdrive #PWR0118
+L microtaur-teensy41-rescue:Vdrive-power #PWR0118
 U 1 1 6093DD87
 P 8850 1900
 F 0 "#PWR0118" H 8650 1750 50  0001 C CNN
@@ -846,7 +846,7 @@ F 3 "" H 8850 1900 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L power:GND #PWR0119
+L microtaur-teensy41-rescue:GND-power #PWR0119
 U 1 1 6093DD8D
 P 8850 1800
 F 0 "#PWR0119" H 8850 1550 50  0001 C CNN
@@ -857,7 +857,7 @@ F 3 "" H 8850 1800 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L power:Vdrive #PWR0120
+L microtaur-teensy41-rescue:Vdrive-power #PWR0120
 U 1 1 6093DD93
 P 8850 2200
 F 0 "#PWR0120" H 8650 2050 50  0001 C CNN
@@ -868,7 +868,7 @@ F 3 "" H 8850 2200 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L power:GND #PWR0121
+L microtaur-teensy41-rescue:GND-power #PWR0121
 U 1 1 6093DD99
 P 8850 2100
 F 0 "#PWR0121" H 8850 1850 50  0001 C CNN
@@ -879,7 +879,7 @@ F 3 "" H 8850 2100 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L power:Vdrive #PWR0122
+L microtaur-teensy41-rescue:Vdrive-power #PWR0122
 U 1 1 60941308
 P 8850 2500
 F 0 "#PWR0122" H 8650 2350 50  0001 C CNN
@@ -890,7 +890,7 @@ F 3 "" H 8850 2500 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L power:GND #PWR0123
+L microtaur-teensy41-rescue:GND-power #PWR0123
 U 1 1 6094130E
 P 8850 2400
 F 0 "#PWR0123" H 8850 2150 50  0001 C CNN
@@ -901,7 +901,7 @@ F 3 "" H 8850 2400 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L power:Vdrive #PWR0124
+L microtaur-teensy41-rescue:Vdrive-power #PWR0124
 U 1 1 60941314
 P 8850 2800
 F 0 "#PWR0124" H 8650 2650 50  0001 C CNN
@@ -912,7 +912,7 @@ F 3 "" H 8850 2800 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L power:GND #PWR0125
+L microtaur-teensy41-rescue:GND-power #PWR0125
 U 1 1 6094131A
 P 8850 2700
 F 0 "#PWR0125" H 8850 2450 50  0001 C CNN
@@ -923,7 +923,7 @@ F 3 "" H 8850 2700 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L power:Vdrive #PWR0126
+L microtaur-teensy41-rescue:Vdrive-power #PWR0126
 U 1 1 60944C09
 P 8850 3100
 F 0 "#PWR0126" H 8650 2950 50  0001 C CNN
@@ -934,7 +934,7 @@ F 3 "" H 8850 3100 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L power:GND #PWR0127
+L microtaur-teensy41-rescue:GND-power #PWR0127
 U 1 1 60944C0F
 P 8850 3000
 F 0 "#PWR0127" H 8850 2750 50  0001 C CNN
@@ -945,7 +945,7 @@ F 3 "" H 8850 3000 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L power:Vdrive #PWR0128
+L microtaur-teensy41-rescue:Vdrive-power #PWR0128
 U 1 1 60944C15
 P 8850 3400
 F 0 "#PWR0128" H 8650 3250 50  0001 C CNN
@@ -956,7 +956,7 @@ F 3 "" H 8850 3400 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L power:GND #PWR0129
+L microtaur-teensy41-rescue:GND-power #PWR0129
 U 1 1 60944C1B
 P 8850 3300
 F 0 "#PWR0129" H 8850 3050 50  0001 C CNN
@@ -967,7 +967,7 @@ F 3 "" H 8850 3300 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x04 IMU1
+L microtaur-teensy41-rescue:Conn_01x04-Connector_Generic IMU1
 U 1 1 6095C393
 P 5550 6050
 F 0 "IMU1" H 5468 5625 50  0000 C CNN
@@ -984,7 +984,7 @@ Wire Wire Line
 	9300 5450 9400 5450
 Connection ~ 9400 5450
 $Comp
-L Regulator_Linear:LM7805_TO220 U3
+L microtaur-teensy41-rescue:LM7805_TO220-Regulator_Linear U3
 U 1 1 6097103B
 P 9100 5450
 F 0 "U3" H 9100 5692 50  0000 C CNN
