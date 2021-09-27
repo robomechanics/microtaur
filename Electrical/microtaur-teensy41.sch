@@ -145,7 +145,6 @@ F 3 "" H 10100 5850 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	10100 5650 9700 5650
-Connection ~ 10100 5650
 Text Label 9700 5650 0    50   ~ 0
 BAT_MON
 Wire Wire Line
@@ -183,7 +182,6 @@ Wire Wire Line
 	5750 6150 6050 6150
 Text Label 6050 6150 2    50   ~ 0
 5V
-Connection ~ 9500 5450
 $Comp
 L Device:C_Small C1
 U 1 1 60984EAC
@@ -198,18 +196,13 @@ F 5 "https://www.digikey.com/en/products/detail/venkel/C0805X7R500-224MNE/123275
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9100 5750 9500 5750
+	9050 5750 9500 5750
 Wire Wire Line
 	9500 5750 9500 5650
 Wire Wire Line
-	9100 5850 9100 5750
+	9050 5850 9050 5750
 Wire Wire Line
-	9500 5450 10100 5450
-Wire Wire Line
-	9100 5850 10100 5850
-Connection ~ 10100 5850
-Wire Wire Line
-	8600 5450 8800 5450
+	9050 5850 10100 5850
 Text Label 8600 5450 0    50   ~ 0
 5V
 Wire Wire Line
@@ -531,27 +524,27 @@ $EndComp
 $Comp
 L Mechanical:MountingHole H7
 U 1 1 608B8276
-P 1000 7250
-F 0 "H7" H 1100 7296 50  0000 L CNN
-F 1 "MountingHole" H 1100 7205 50  0000 L CNN
-F 2 "MountingHole:MountingHole_2.2mm_M2" H 1000 7250 50  0001 C CNN
-F 3 "~" H 1000 7250 50  0001 C CNN
-F 4 "~" H 1000 7250 50  0001 C CNN "Part Number"
-F 5 "~" H 1000 7250 50  0001 C CNN "URL"
-	1    1000 7250
+P 1600 7250
+F 0 "H7" H 1700 7296 50  0000 L CNN
+F 1 "MountingHole" H 1700 7205 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2" H 1600 7250 50  0001 C CNN
+F 3 "~" H 1600 7250 50  0001 C CNN
+F 4 "~" H 1600 7250 50  0001 C CNN "Part Number"
+F 5 "~" H 1600 7250 50  0001 C CNN "URL"
+	1    1600 7250
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H8
 U 1 1 608B8652
-P 1000 7450
-F 0 "H8" H 1100 7496 50  0000 L CNN
-F 1 "MountingHole" H 1100 7405 50  0000 L CNN
-F 2 "MountingHole:MountingHole_2.2mm_M2" H 1000 7450 50  0001 C CNN
-F 3 "~" H 1000 7450 50  0001 C CNN
-F 4 "~" H 1000 7450 50  0001 C CNN "Part Number"
-F 5 "~" H 1000 7450 50  0001 C CNN "URL"
-	1    1000 7450
+P 1600 7450
+F 0 "H8" H 1700 7496 50  0000 L CNN
+F 1 "MountingHole" H 1700 7405 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2" H 1600 7450 50  0001 C CNN
+F 3 "~" H 1600 7450 50  0001 C CNN
+F 4 "~" H 1600 7450 50  0001 C CNN "Part Number"
+F 5 "~" H 1600 7450 50  0001 C CNN "URL"
+	1    1600 7450
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -568,55 +561,29 @@ F 5 "~" H 750 7450 50  0001 C CNN "URL"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H2
-U 1 1 608B8C2F
-P 750 7000
-F 0 "H2" H 850 7046 50  0000 L CNN
-F 1 "MountingHole" H 850 6955 50  0000 L CNN
-F 2 "MountingHole:MountingHole_2.2mm_M2" H 750 7000 50  0001 C CNN
-F 3 "~" H 750 7000 50  0001 C CNN
-F 4 "~" H 750 7000 50  0001 C CNN "Part Number"
-F 5 "~" H 750 7000 50  0001 C CNN "URL"
-	1    750  7000
-	1    0    0    -1  
-$EndComp
-$Comp
 L Mechanical:MountingHole H6
 U 1 1 608B8EC9
-P 1000 7000
-F 0 "H6" H 1100 7046 50  0000 L CNN
-F 1 "MountingHole" H 1100 6955 50  0000 L CNN
-F 2 "MountingHole:MountingHole_2.2mm_M2" H 1000 7000 50  0001 C CNN
-F 3 "~" H 1000 7000 50  0001 C CNN
-F 4 "~" H 1000 7000 50  0001 C CNN "Part Number"
-F 5 "~" H 1000 7000 50  0001 C CNN "URL"
-	1    1000 7000
+P 1600 7000
+F 0 "H6" H 1700 7046 50  0000 L CNN
+F 1 "MountingHole" H 1700 6955 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2" H 1600 7000 50  0001 C CNN
+F 3 "~" H 1600 7000 50  0001 C CNN
+F 4 "~" H 1600 7000 50  0001 C CNN "Part Number"
+F 5 "~" H 1600 7000 50  0001 C CNN "URL"
+	1    1600 7000
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole H5
 U 1 1 608B9277
-P 1000 6800
-F 0 "H5" H 1100 6846 50  0000 L CNN
-F 1 "MountingHole" H 1100 6755 50  0000 L CNN
-F 2 "MountingHole:MountingHole_2.2mm_M2" H 1000 6800 50  0001 C CNN
-F 3 "~" H 1000 6800 50  0001 C CNN
-F 4 "~" H 1000 6800 50  0001 C CNN "Part Number"
-F 5 "~" H 1000 6800 50  0001 C CNN "URL"
-	1    1000 6800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Mechanical:MountingHole H1
-U 1 1 608B9565
-P 750 6800
-F 0 "H1" H 850 6846 50  0000 L CNN
-F 1 "MountingHole" H 850 6755 50  0000 L CNN
-F 2 "MountingHole:MountingHole_2.2mm_M2" H 750 6800 50  0001 C CNN
-F 3 "~" H 750 6800 50  0001 C CNN
-F 4 "~" H 750 6800 50  0001 C CNN "Part Number"
-F 5 "~" H 750 6800 50  0001 C CNN "URL"
-	1    750  6800
+P 1600 6800
+F 0 "H5" H 1700 6846 50  0000 L CNN
+F 1 "MountingHole" H 1700 6755 50  0000 L CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2" H 1600 6800 50  0001 C CNN
+F 3 "~" H 1600 6800 50  0001 C CNN
+F 4 "~" H 1600 6800 50  0001 C CNN "Part Number"
+F 5 "~" H 1600 6800 50  0001 C CNN "URL"
+	1    1600 6800
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -997,30 +964,33 @@ U 1 1 6095C393
 P 5550 6050
 F 0 "IMU1" H 5468 5625 50  0000 C CNN
 F 1 "Conn_01x04" H 5468 5716 50  0000 C CNN
-F 2 "Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical" H 5550 6050 50  0001 C CNN
+F 2 "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal" H 5550 6050 50  0001 C CNN
 F 3 "~" H 5550 6050 50  0001 C CNN
 F 4 "455-1790-2-ND" H 5550 6050 50  0001 C CNN "Part Number"
 F 5 "https://www.digikey.com/en/products/detail/jst-sales-america-inc/BM04B-SRSS-TB-LF-SN/926696" H 5550 6050 50  0001 C CNN "URL"
 	1    5550 6050
 	-1   0    0    1   
 $EndComp
-Connection ~ 9100 5750
-Wire Wire Line
-	9400 5450 9500 5450
-Wire Wire Line
-	9300 5450 9400 5450
-Connection ~ 9400 5450
 $Comp
 L Regulator_Linear:LM7805_TO220 U3
 U 1 1 6097103B
-P 9100 5450
-F 0 "U3" H 9100 5692 50  0000 C CNN
-F 1 "LM7805_TO220" H 9100 5601 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 9100 5675 50  0001 C CIN
-F 3 "" H 9100 5400 50  0001 C CNN
-F 4 "NCP1117LPST33T3COSTR-ND" H 9100 5450 50  0001 C CNN "Part Number"
-F 5 "https://www.digikey.com/en/products/detail/on-semiconductor/NCP1117LPST33T3G/2194024" H 9100 5450 50  0001 C CNN "URL"
-	1    9100 5450
+P 9050 5450
+F 0 "U3" H 9050 5692 50  0000 C CNN
+F 1 "LM7805_TO220" H 9050 5601 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223" H 9050 5675 50  0001 C CIN
+F 3 "" H 9050 5400 50  0001 C CNN
+F 4 "NCP1117LPST33T3COSTR-ND" H 9050 5450 50  0001 C CNN "Part Number"
+F 5 "https://www.digikey.com/en/products/detail/on-semiconductor/NCP1117LPST33T3G/2194024" H 9050 5450 50  0001 C CNN "URL"
+	1    9050 5450
 	-1   0    0    -1  
 $EndComp
+Connection ~ 9500 5450
+Wire Wire Line
+	9500 5450 10100 5450
+Wire Wire Line
+	9350 5450 9500 5450
+Wire Wire Line
+	8600 5450 8750 5450
+Connection ~ 10100 5850
+Connection ~ 9050 5750
 $EndSCHEMATC
