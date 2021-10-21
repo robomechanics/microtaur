@@ -1,9 +1,10 @@
 #include <Arduino.h>
 #include "joystick.h"
 #include "ChRt.h"
+#include "led.h"
 
-Joystick *j;
 uint32_t buttons_prev = 0;
+
 
 void callback(const JoyState state, const JoyState prev_state)
 {
@@ -24,7 +25,8 @@ static THD_WORKING_AREA(waJoystickThread, 200);
 static THD_FUNCTION(JoystickThread, arg){
   (void)arg;
   while (true){
-    j->update();
+    Joystick& j = Joystick::instance();
+    j.update();
     chThdSleepMilliseconds(1);
   }
 }
@@ -33,25 +35,27 @@ static THD_WORKING_AREA(waLEDThread, 200);
 static THD_FUNCTION(LEDThread, arg){
   (void)arg;
   while (true){
-    chThdSleepMilliseconds(1);
+    LED& led = LED::instance();
+    led.run();
   }
 }
 
 void chSetup(){
   chThdCreateStatic(waJoystickThread, sizeof(waJoystickThread),
                     NORMALPRIO + 2, JoystickThread, NULL);
+  chThdCreateStatic(waLEDThread, sizeof(waLEDThread),
+                    NORMALPRIO + 2, LEDThread, NULL);
 }
 
 void setup()
 {
   Serial.begin(2000000);
-  pinMode(13, OUTPUT);
-  digitalWrite(13, HIGH);
+  LED& led = LED::instance();
   // Serial1.begin(115200);
   while (!Serial)
     ; // wait for Arduino Serial Monitor
-  j = new Joystick();
-  j->connectCallback(callback);
+  Joystick& j = Joystick::instance();
+  j.connectCallback(callback);
   // Initialize OS and then call chSetup.
   chBegin(chSetup);
 }

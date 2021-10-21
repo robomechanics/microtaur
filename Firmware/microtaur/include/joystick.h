@@ -4,6 +4,7 @@
 #include <bitset>
 #include <vector>
 #include <functional>
+#include "singleton.h"
 
 #define USB_DEVICES 3
 
@@ -24,17 +25,19 @@ struct JoyState{
 
 typedef std::function<void(const JoyState, const JoyState)> CallbackFunction;
 
-class Joystick {
+class Joystick : public Singleton<Joystick>{
+    friend class Singleton<Joystick>;
     public:
-        Joystick();
-        ~Joystick();
         void update();
         void connectCallback(CallbackFunction cb){ 
             cb_ = cb;
         }
-
+        bool isConected() { return is_connected_;}
+        
     private:
         JoyState state_;
         JoyState prev_state_;
+        bool is_connected_;
         CallbackFunction cb_;
+        Joystick();
 };

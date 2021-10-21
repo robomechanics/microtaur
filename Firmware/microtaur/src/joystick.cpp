@@ -1,4 +1,5 @@
 #include "joystick.h"
+#include "led.h"
 
 USBHost usb;
 USBHub hub(usb);
@@ -11,7 +12,7 @@ USBHIDInput *hiddrivers[] = {&joystick};
 const char *hid_driver_names[USB_DEVICES] = {"Hjoystick"};
 bool hid_driver_active[USB_DEVICES] = {false};
 
-Joystick::Joystick()
+Joystick::Joystick() : is_connected_(false)
 {
     usb.begin();
 }
@@ -26,11 +27,17 @@ void Joystick::update()
         {
             Serial.println("Joystick disconnected");
             hid_driver_active[0] = false;
+            is_connected_ = false;
+            LED& led = LED::instance();
+            led.set(100,100);
         }
         else
         {
             Serial.println("Joystick connected");
             hid_driver_active[0] = true;
+            is_connected_=true;
+            LED& led = LED::instance();
+            led.set(500,500);
         }
     }
 
