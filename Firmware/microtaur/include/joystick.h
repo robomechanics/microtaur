@@ -28,7 +28,7 @@ typedef std::function<void(const JoyState, const JoyState)> CallbackFunction;
 class Joystick : public Singleton<Joystick>{
     friend class Singleton<Joystick>;
     public:
-        void update();
+        void run();
         void connectCallback(CallbackFunction cb){ 
             cb_ = cb;
         }

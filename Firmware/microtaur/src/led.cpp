@@ -1,6 +1,6 @@
 #include "led.h"
 
-LED::LED(): mutex_(_MUTEX_DATA(mutex_)), on_ms_(500.0), off_ms_(500.0){
+LED::LED(): on_ms_(200.0), off_ms_(200.0), mutex_(_MUTEX_DATA(mutex_)) {
     pinMode(LED_PIN, OUTPUT);
 }
 
