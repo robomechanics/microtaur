@@ -9,7 +9,7 @@
 uint32_t buttons_prev = 0;
 
 
-void callback(const JoyState state, const JoyState prev_state)
+void joy_callback(const JoyState state, const JoyState prev_state)
 {
   // Serial.printf("Joy: %s",state.buttons.to_string().c_str());
   Serial.print("Joystick: buttons = ");
@@ -74,7 +74,7 @@ void setup()
   while (!Serial)
     ; // wait for Arduino Serial Monitor
   Joystick& j = Joystick::instance();
-  j.connectCallback(callback);
+  j.connectCallback(joy_callback);
   // Initialize State Machine
   Machine& machine = Machine::instance();
   machine.addController(std::unique_ptr<WalkingController>(new WalkingController()));
