@@ -12,11 +12,11 @@ class LED : public Singleton<LED>{
         void on();
         void off();
         void run();
-        void set(double on, double off);
+        void set(unsigned int on, unsigned int off);
 
     private:
-        double  on_ms_;
-        double  off_ms_;
+        unsigned int  on_ms_;
+        unsigned int  off_ms_;
         mutex_t mutex_;
         LED();
 };
