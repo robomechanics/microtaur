@@ -12,7 +12,6 @@ IMU::IMU() : mutex_(_MUTEX_DATA(mutex_)){
 }
 
 void IMU::run(){
-    while (true){
         struct bno055_euler data;
         bno055_read_euler_hrp(&data);
         chMtxLock(&mutex_);
@@ -20,9 +19,6 @@ void IMU::run(){
         state_.pitch = IMU_RADIANS(data.p);
         state_.yaw = IMU_RADIANS(data.h);
         chMtxUnlock(&mutex_);
-        chThdSleepMilliseconds(10);
-        
-    }
 }
 
 IMUState IMU::state(){
