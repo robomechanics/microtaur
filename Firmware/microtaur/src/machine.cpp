@@ -1,7 +1,7 @@
 #include "machine.h"
 #include "ChRt.h"
 
-Machine::Machine(): running_(false){
+Machine::Machine(): running_(false), running_mutex_(_MUTEX_DATA(running_mutex_)){
     
 }
 
@@ -10,19 +10,28 @@ void Machine::addController(std::unique_ptr<ControllerBase> controller_ptr){
 }
 
 void Machine::run(){
+    chMtxLock(&running_mutex_);
     if (running_){
+        auto prev = chVTGetSystemTime();
         controller_list_[controller_running_]->run();
         double rate = controller_list_[controller_running_]->rate();
-        chThdSleepMilliseconds(1000./rate);
+        unsigned int sleep_time_ms = static_cast<unsigned int>(1000./rate);
+        prev = chThdSleepUntilWindowed(prev, chTimeAddX(prev, TIME_MS2I(sleep_time_ms)));
+
     }
+    chMtxUnlock(&running_mutex_);
 }
 
 void Machine::start(){
+    chMtxLock(&running_mutex_);
     running_ = true;
+    chMtxUnlock(&running_mutex_);
 }
 
 void Machine::stop(){
+    chMtxLock(&running_mutex_);
     running_ = false;
+    chMtxUnlock(&running_mutex_);
 }
 
 void Machine::switchController(std::string name){
