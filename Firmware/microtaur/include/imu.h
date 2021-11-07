@@ -4,21 +4,26 @@
 #include "BNO055_support.h"
 #include "Wire.h"
 #include "ChRt.h"
+#include "thread.h"
 
-struct IMUState{
+struct IMUState
+{
     double roll, pitch, yaw;
 };
 
-class IMU : public Singleton<IMU> {
+class IMU : public Singleton<IMU>, public Thread<IMU, DEFAULT_STACK>
+{
     friend class Singleton<IMU>;
-    
-    public:
-        IMUState state();
-        void run();
 
-    private:
-        IMU();
-        mutex_t mutex_;
-        IMUState state_;
-        struct bno055_t device_;
+    virtual_timer_t timer_;
+    IMU();
+    static void timer_callback(void *arg);
+    mutex_t mutex_;
+    IMUState state_;
+    struct bno055_t device_;
+
+public:
+    IMUState state();
+    void run();
+    void init(tprio_t priority);
 };

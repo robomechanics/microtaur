@@ -13,15 +13,21 @@ USBHIDInput *hiddrivers[] = {&joystick};
 const char *hid_driver_names[USB_DEVICES] = {"Hjoystick"};
 bool hid_driver_active[USB_DEVICES] = {false};
 
+
 Joystick::Joystick() : is_connected_(false)
 {
     usb.begin();
 }
 
+// void Joystick::init(tprio_t priority){
+//     Thread<Joystick>::init(priority);
+// }
+
 void Joystick::run()
 {
 
     while (true){
+        auto prev = chVTGetSystemTime();
         usb.Task();
         if (*hiddrivers[0] != hid_driver_active[0])
         {
@@ -31,7 +37,7 @@ void Joystick::run()
                 hid_driver_active[0] = false;
                 is_connected_ = false;
                 LED& led = LED::instance();
-                led.set(100,100);
+                led.set(50,950);
             }
             else
             {
@@ -56,6 +62,6 @@ void Joystick::run()
                 cb_(state_, prev_state_);
         }
         joystick.joystickDataClear();
-        chThdSleepMilliseconds(1);
+        prev = chThdSleepUntilWindowed(prev, chTimeAddX(prev, TIME_MS2I(1)));
     }
 }

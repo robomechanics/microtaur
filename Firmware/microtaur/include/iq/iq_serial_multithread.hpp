@@ -3,6 +3,7 @@
 #include "generic_interface.hpp"
 #include "HardwareSerial.h"
 #include "ChRt.h"
+#include "Arduino.h"
 
 class IqSerialMultithreaded
 {
@@ -21,6 +22,7 @@ public:
     {
         begin(115200);
     }
+    uint8_t get_waiting(){ return communication_length;}
 
     void set(ClientEntryVoid entry)
     {
@@ -41,11 +43,12 @@ public:
         entry.get(com_);
         sendBytes();
         unsigned long start_time = millis();
+        chThdSleepMilliseconds(2);
         while ((millis() < start_time + 10) && !getBytes(entry))
         {
             // this is the only change made in this implementation
-            // This yields to another thread of a similar priority if other threads are running. 
-            chThdYield();
+            // This yields to another thread of a similar priority 
+            // if there is one.
         }
 
         if (entry.IsFresh())
