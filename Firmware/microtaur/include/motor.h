@@ -75,7 +75,7 @@ public:
         ser_->begin();
     }
     void set_position(double position) { cmd_pos_ = position; }
-    void get_position() { return pos_; }
+    float get_position() { return pos_; }
     void set_gains(double Kp, double Kd)
     {
         Kp_ = Kp;

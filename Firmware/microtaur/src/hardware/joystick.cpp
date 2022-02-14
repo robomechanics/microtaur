@@ -36,6 +36,7 @@ void Joystick::run()
                 Serial.println("Joystick disconnected");
                 hid_driver_active[0] = false;
                 is_connected_ = false;
+                Serial.println("Not Connected");
                 LED& led = LED::instance();
                 led.set(50,950);
             }
@@ -45,6 +46,7 @@ void Joystick::run()
                 hid_driver_active[0] = true;
                 is_connected_=true;
                 LED& led = LED::instance();
+                Serial.println("Connected");
                 led.set(500,500);
             }
         }
