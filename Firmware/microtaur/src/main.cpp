@@ -53,7 +53,10 @@ void setup()
   Motor<7>::instance().attach_serial_port(Serial7);
   Motor<8>::instance().attach_serial_port(Serial8);
 
-  float motor_zeros[8] = {-0.42, 1.46, 2.71, 0.82, 3.20, -1.71, 1.52, 1.39};
+  Motor<1>::instance().set_gains(10,2);
+
+/*
+  float motor_zeros[8] = {0,10,0,0,0,0,0,0};;
 
   Motor<1>::instance().set_position(motor_zeros[0]);
   Motor<2>::instance().set_position(motor_zeros[1]);
@@ -63,7 +66,7 @@ void setup()
   Motor<6>::instance().set_position(motor_zeros[5]);
   Motor<7>::instance().set_position(motor_zeros[6]);
   Motor<8>::instance().set_position(motor_zeros[7]);
-
+*/
   // Joystick::instance().run();
 
   // Initialize OS and then call chSetup.
@@ -73,11 +76,31 @@ void setup()
 
 void loop()
 {
-  Motor<5>::instance().set_position(a);
-  a += 0.0001;
+  float motor_zeros[8] = {0,10,0,0,0,0,0,0};
+  /*
+  Motor<1>::instance().set_position(motor_zeros[0]);
+  Motor<2>::instance().set_position(motor_zeros[1]);
+  Motor<3>::instance().set_position(motor_zeros[2]);
+  Motor<4>::instance().set_position(motor_zeros[3]);
+  Motor<5>::instance().set_position(motor_zeros[4]);
+  Motor<6>::instance().set_position(motor_zeros[5]);
+  Motor<7>::instance().set_position(motor_zeros[6]);
+  Motor<8>::instance().set_position(motor_zeros[7]);
+  */
+  //  Motor<8>::instance().set_position(a);
+  // Motor<3>::instance().set_position(a);
+  Motor<1>::instance().set_position(-1.2);
+  Motor<2>::instance().set_position(-0.8);
+  Motor<3>::instance().set_position(0.6);
+  Motor<4>::instance().set_position(-1.3);
+  Motor<5>::instance().set_position(-0.5);
+  Motor<6>::instance().set_position(-1);
+  Motor<7>::instance().set_position(0.2);
+  Motor<8>::instance().set_position(-0.3);
+  //a += 0.00001;
   // Serial.println(a);
-  Serial.println(Motor<5>::instance().get_position());
-  // std::bitset<12> buttons = joystick.getButtons();
-  // Serial.println(buttons.to_string().c_str());
-  // Serial.println(Joystick::instance().isConected());
+  Serial.println(Motor<7>::instance().get_position());
+  //std::bitset<12> buttons = joystick.getButtons();
+  //Serial.println(buttons.to_string().c_str());
+  //Serial.println(Joystick::instance().isConected());
 }
