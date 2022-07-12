@@ -5,6 +5,7 @@
 #include "Arduino.h"
 #include "iq_module_communication.hpp"
 #include "iq/iq_serial_multithread.hpp"
+#include "client_communication.hpp"
 #include <memory>
 
 template <unsigned int N>
@@ -18,6 +19,8 @@ class Motor : public Singleton<Motor<N>>, public Thread<Motor<N>, 200>
     float vel_;
     float Kp_;
     float Kd_;
+    float Ki_;
+    float voltage_;
     virtual_timer_t timer_;
 
     static void timer_callback(void * arg)
@@ -76,10 +79,99 @@ public:
     }
     void set_position(double position) { cmd_pos_ = position; }
     float get_position() { return pos_; }
-    void set_gains(double Kp, double Kd)
+
+
+    
+    float get_K_p() {
+        float Kp;
+        ser_->get(client_.angle_Kp_, Kp);
+        // Kp = client_.angle_Kp_.get();
+        
+        return Kp;
+    } 
+    float get_K_d() {
+        float Kd;
+        ser_->get(client_.angle_Kd_, Kd);
+        // Kd = client_.angle_Kd_.get();
+        return Kd;
+    } 
+
+    void set_ang_vel(float w) {
+        ser_->set(client_.angular_speed_max_, w);
+    }
+    
+    float get_location() {
+        float loc;
+        ser_->get(client_.obs_angular_displacement_, loc);
+        return loc;
+    }
+
+    void move_by_traj(float disp, float time) {
+        float loc_zero;
+        loc_zero = get_location();
+
+        ser_->set(client_.trajectory_angular_displacement_, disp);
+        ser_->set(client_.trajectory_duration_, time);
+        delay(1000);
+    }
+
+    void set_gains(float Kp, float Ki, float Kd)
     {
         Kp_ = Kp;
+        Ki_ = Ki;
         Kd_ = Kd;
-        signal(this->thread(), EVENT_MASK(1));
+
+        ser_->set(client_.angle_Kp_, Kp_);
+        ser_->set(client_.angle_Ki_, Ki_);
+        ser_->set(client_.angle_Kd_, Kd_);
     }
+
+    void set_coast_mode() {
+        ser_->set(client_.ctrl_coast_);
+    }
+
+    void set_up_traj(float zero_pos) {
+        ser_->set(client_.obs_angular_displacement_, zero_pos); // sets current location to zero
+        ser_->set(client_.trajectory_queue_mode_, (int8_t)0); // sets traj to overwrite mode
+    }
+
+    void set_overwrite_mode() {
+        ser_->set(client_.trajectory_queue_mode_, (int8_t)1); // sets traj to overwrite mode
+    }
+
+    void set_queue_mode() {
+        ser_->set(client_.trajectory_queue_mode_, (int8_t)0); // sets traj to overwrite mode
+    }
+
+    void setPosToZero() {
+        ser_->set(client_.obs_angular_displacement_, 0.0f);
+    }
+
+    void move_traj_by_time(float disp, float time) {
+        ser_->set(client_.trajectory_angular_displacement_, disp);
+        ser_->set(client_.trajectory_duration_, time);
+        // Serial.println("function activated");
+    }
+
+    void move_traj_by_speed(float disp, float speed) {
+        ser_->set(client_.trajectory_angular_displacement_, disp);
+        ser_->set(client_.trajectory_average_speed_, speed);
+    }
+
+    float get_volts() {
+        ser_->get(client_.ctrl_volts_, voltage_);
+        return voltage_;
+    }
+
+    void check_prev() {
+      int8_t mode = 0;
+      // At this point the motor should be executing a trajectory.
+      // Wait for the trajectory to finish
+      do
+      {
+        // Gets ctrl_mode_ from the module and puts the result in the mode variable
+        ser_->get(client_.ctrl_mode_, mode);
+      } while(mode == 6); // Check if the motor is still executing the last trajectory
+    }
+
 };
