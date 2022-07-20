@@ -20,7 +20,7 @@ class Motor : public Singleton<Motor<N>>, public Thread<Motor<N>, 200>
     float Kp_;
     float Kd_;
     float Ki_;
-    float voltage_;
+    float voltage_ = 0.0f;
     virtual_timer_t timer_;
 
     static void timer_callback(void * arg)
@@ -161,6 +161,17 @@ public:
     float get_volts() {
         ser_->get(client_.ctrl_volts_, voltage_);
         return voltage_;
+    }
+
+    void testing_get_volts() {
+        ser_->get(client_.ctrl_volts_, voltage_);
+    }
+
+    void serial_print_volts(void) {
+        // float volts_;
+        // ser_->get(client_.ctrl_volts_, volts_);
+        Serial.print(voltage_);
+        // Serial.println("testing...");
     }
 
     void check_prev() {
