@@ -1,0 +1,46 @@
+DISCLAIMER: Some of the motors do not work, if after following
+this process you still cannot connect to the motor, it is as good
+as dead, sorry. :(
+
+Currently unsolved issue: motor can connect to UART, however,
+we cannot connect it to our teensy, we have modified the Baud rate
+and the firmware versions, neither worked :(
+
+
+How to connect to motors:
+
+1. Isolate motor onto USB to UART in order to get full access, a
+microcontroller such as Arduino can only provide partial accessibility 
+- (CAN'T UPDATE FIRMWARE WITHOUT UART)
+
+	a. Connect TX on FPDI (for example) to RX on motor, and 
+	RX on FPDI to TX on motor. And GND to GND
+	
+	b. Install IQ Control Center, and then click connect on top right
+	with respective baud rate.
+		i. if baud rate is causing issues, connect motor to arduino
+		and follow directions on IQ instruction manual to find 
+		the arduino code that can be used to connect to the motors
+		using a custom baud rate. Then head to Advanced settings in
+		IQ settings and change Baud rate.
+
+		****You cannot access the motor control without modifying the
+		baud rate, currently, the old motors are set to 500000, you
+		must set it to your desired baud rate (i.e. 115200) through an arduino. 
+		Then you can connect UART in order to flash new firmware*********
+
+	c. To update motors, retrieve firmware .bin file from IQ website
+	and then follow direction on IQ control center to update.
+		i. to get specific update files, you can paste the 
+		link address of the firmware file into the search bar 
+		and then backspace the link until it leads to the parent
+		directory, where you can find New files, old files, and 
+		backup files. (If you have trouble with this, just email IT for the
+		specific firmware version your looking for)
+
+
+If you have any questions beyond this point, you can contact me at joshuara@andrew.cmu.edu, I'm more than happy to help you debug!
+
+Hope this helps!
+
+- Josh
