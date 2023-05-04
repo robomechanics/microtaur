@@ -16,6 +16,8 @@ class Motor : public Singleton<Motor<N>>, public Thread<Motor<N>, 200>
     MultiTurnAngleControlClient client_;
     float pos_;
     float cmd_pos_;
+    float acc_;
+    float amps;
     float vel_;
     float Kp_;
     float Kd_;
@@ -51,6 +53,7 @@ public:
                 ser_->set(client_.ctrl_angle_, cmd_pos_);
                 ser_->get(client_.obs_angular_displacement_, pos_);
                 ser_->get(client_.obs_angular_velocity_, vel_);
+                
             }
             // if (mask & EVENT_MASK(Signals::Update_Gains))
             // {
@@ -80,8 +83,12 @@ public:
     void set_position(double position) { cmd_pos_ = position; }
     float get_position() { return pos_; }
 
-
+    // float get_amps() {
+    //     pwr.amps_.get(com);
+    //     return 0;
+    // }
     
+
     float get_K_p() {
         float Kp;
         ser_->get(client_.angle_Kp_, Kp);
@@ -158,20 +165,33 @@ public:
         ser_->set(client_.trajectory_average_speed_, speed);
     }
 
-    float get_volts() {
+    void update_volts() {
         ser_->get(client_.ctrl_volts_, voltage_);
+    }
+
+    float get_volts() {
+        // ser_->get(client_.ctrl_volts_, voltage_);
         return voltage_;
     }
 
-    void testing_get_volts() {
-        ser_->get(client_.ctrl_volts_, voltage_);
+    void update_acc() {
+        ser_->get(client_.trajectory_angular_acceleration_, acc_);
+    }
+
+    float get_acc() {
+        return acc_;
+    }
+
+    void update_positions() {
+        ser_->get(client_.obs_angular_displacement_, pos_);
     }
 
     void serial_print_volts(void) {
-        // float volts_;
-        // ser_->get(client_.ctrl_volts_, volts_);
         Serial.print(voltage_);
-        // Serial.println("testing...");
+    }
+
+    void serial_print_position(void) {
+        Serial.print(pos_);
     }
 
     void check_prev() {

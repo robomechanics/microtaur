@@ -42,12 +42,12 @@ void LED::run()
         prev = chThdSleepUntilWindowed(prev, chTimeAddX(prev, TIME_MS2I(on_time)));
         off();
         prev = chThdSleepUntilWindowed(prev, chTimeAddX(prev, TIME_MS2I(off_time)));
-        Serial.print("Motor1: ");
-        Serial.println(chTimeI2US(Motor<1>::instance().time_));
-        Serial.print("Motor2: ");
-        Serial.println(chTimeI2US(Motor<2>::instance().time_));
-        Serial.print("Motor3: ");
-        Serial.println(chTimeI2US(Motor<3>::instance().time_));
+        // Serial.print("Motor1: ");
+        // Serial.println(chTimeI2US(Motor<1>::instance().time_));
+        // Serial.print("Motor2: ");
+        // Serial.println(chTimeI2US(Motor<2>::instance().time_));
+        // Serial.print("Motor3: ");
+        // Serial.println(chTimeI2US(Motor<3>::instance().time_));
         Serial.flush();
     }
 }

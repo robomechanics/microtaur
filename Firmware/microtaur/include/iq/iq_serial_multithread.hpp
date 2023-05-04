@@ -50,12 +50,14 @@ public:
             // This yields to another thread of a similar priority 
             // if there is one.
         }
-
+        
         if (entry.IsFresh())
         {
+            
             value = entry.get_reply();
             return true;
         }
+        
         return false;
     }
 
