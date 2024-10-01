@@ -14,11 +14,7 @@ class Microtaur : public Singleton<Microtaur>
     void init_imu();
     void init_machine();
     void init_led();
-    // Microtaur(){}
     
-private:
-
-
 public:
     uint32_t buttons_ = 0;
     // Joystick key-encodings
@@ -49,9 +45,6 @@ public:
     float Ki_ = 0.0f;
     float Kd_ = 0.0f;
 
-    bool is_in_spider_mode_ = false;
-
-
     void init();
 
     uint32_t get_buttons(uint32_t buttons) {
@@ -60,9 +53,8 @@ public:
     }
 
     void setup() {
-
         // Attach serials ports and initialize PID parameters
-        
+  
         Motor<1>::instance().attach_serial_port(Serial1);
         Motor<2>::instance().attach_serial_port(Serial2);
         Motor<3>::instance().attach_serial_port(Serial3);
@@ -91,8 +83,6 @@ public:
         Motor<3>::instance().set_gains(Kp_, Ki_, Kd_);
         Motor<3>::instance().set_up_traj(0.0f);
         Motor<8>::instance().set_up_traj(0.0f);
-
-
     }
 
 
@@ -107,11 +97,8 @@ public:
             Motor<7>::instance().move_traj_by_time(0.0f, 1.0f);
             Motor<8>::instance().move_traj_by_time(2.50f, 1.0f);
             Motor<3>::instance().move_traj_by_time(0.0f, 1.0f);
-            // duration = 1.0f seconds == 1000 ms
 
-            // get_voltage_position_delay(millis(), 1000);
-
-            // update positions
+            // update positions relative to sitting pose
             cmd_pos_M1_ = 0.0f;
             cmd_pos_M2_ = 2.50f;
             cmd_pos_M3_ = 0.0f;
@@ -138,11 +125,13 @@ public:
             Motor<7>::instance().move_traj_by_time(0.0f, 1.0f);
             Motor<8>::instance().move_traj_by_time(0.0f, 1.0f);
             Motor<3>::instance().move_traj_by_time(0.0f, 1.0f);
-            get_voltage_position_delay(millis(), 1000);
+            delay(1000);
 
             Serial.println("Done sitting");
         }
     }
+
+    bool is_in_spider_mode_ = false;
 
     void go_into_spider_mode() {
         if (is_in_spider_mode_ == false && buttons_ == left_knoch_click_down) {
@@ -166,9 +155,8 @@ public:
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_+0.9f, 2.0f);
             Motor<8>::instance().move_traj_by_time(cmd_pos_M8_+0.9f, 2.0f);
             Motor<3>::instance().move_traj_by_time(cmd_pos_M3_+0.9f, 2.0f);
-            delay(2000);
+            delay(3000);
 
-            delay(1000);
 
             // invert legged direction of front
             Motor<1>::instance().move_traj_by_time(cmd_pos_M1_+1.4f, 1.0f);
@@ -255,12 +243,7 @@ public:
 
     void leap() {
         if (buttons_ == RB) {
-            // 1. crouch down
-            // 2. when sending back, push off ground
-            // 3. move back to normal stance
-            // 3. repeat
             float phase_time_ = 0.05f;
-            uint32_t delay_ = 100;
 
             // picks legs up (moves body lower)
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_-0.5f, 1.0f);
@@ -319,90 +302,77 @@ public:
 
     }
 
-    void slow_bound() {
-        // 1. Move front quick step forward
-        // 2. Move Back quick step forward
-        // 3. repeat
-        // if (buttons_ == ...) {
-
-        // }
-
-
-
-    }
-
-    void walk() {
+    void trot() {
         if (buttons_ == X) {
             float phase_time_ = 0.1;
             uint32_t delay_ = 100;
-            //                   FAST Walking-Trot
-            Serial.println("Beginning fast walking trot");
+            Serial.println("Beginning trot");
             // raise TR&BL legs up
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_-0.5f, phase_time_);
             Motor<6>::instance().move_traj_by_time(cmd_pos_M6_-0.5f, phase_time_);
             Motor<4>::instance().move_traj_by_time(cmd_pos_M4_-0.5f, phase_time_);
             Motor<5>::instance().move_traj_by_time(cmd_pos_M5_-0.5f, phase_time_);
-            get_voltage_position_delay(millis(), delay_);
+            delay(delay_);
 
             //step TR&BL forward (on ground)
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_-0.44f, phase_time_);
             Motor<6>::instance().move_traj_by_time(cmd_pos_M6_+0.02f, phase_time_);
             Motor<4>::instance().move_traj_by_time(cmd_pos_M4_-0.44f, phase_time_);
             Motor<5>::instance().move_traj_by_time(cmd_pos_M5_+0.02f, phase_time_);
-            get_voltage_position_delay(millis(), delay_);
+            delay(delay_);
 
             // back to stance
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_+0.0f, phase_time_);
             Motor<6>::instance().move_traj_by_time(cmd_pos_M6_+0.0f, phase_time_);
             Motor<4>::instance().move_traj_by_time(cmd_pos_M4_+0.0f, phase_time_);
             Motor<5>::instance().move_traj_by_time(cmd_pos_M5_+0.0f, phase_time_);
-            get_voltage_position_delay(millis(), delay_);
+            delay(delay_);
 
             // send back
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_+0.02f, phase_time_);
             Motor<6>::instance().move_traj_by_time(cmd_pos_M6_-0.44f, phase_time_);
             Motor<4>::instance().move_traj_by_time(cmd_pos_M4_+0.02f, phase_time_);
             Motor<5>::instance().move_traj_by_time(cmd_pos_M5_-0.44f, phase_time_);
-            get_voltage_position_delay(millis(), delay_);
+            delay(delay_);
 
             // Raise TL&BR legs up
             Motor<1>::instance().move_traj_by_time(cmd_pos_M1_-0.5f, phase_time_);
             Motor<2>::instance().move_traj_by_time(cmd_pos_M2_-0.5f, phase_time_);
             Motor<3>::instance().move_traj_by_time(cmd_pos_M3_-0.5f, phase_time_);
             Motor<8>::instance().move_traj_by_time(cmd_pos_M8_-0.5f, phase_time_);
-            get_voltage_position_delay(millis(), delay_);
+            delay(delay_);
 
             Motor<1>::instance().move_traj_by_time(cmd_pos_M1_-0.44f, phase_time_);
             Motor<2>::instance().move_traj_by_time(cmd_pos_M2_+0.02f, phase_time_);
             Motor<3>::instance().move_traj_by_time(cmd_pos_M3_-0.44f, phase_time_);
             Motor<8>::instance().move_traj_by_time(cmd_pos_M8_+0.02f, phase_time_);
-            get_voltage_position_delay(millis(), delay_);
+            delay(delay_);
 
             // step back to standing stance
             Motor<1>::instance().move_traj_by_time(cmd_pos_M1_+0.0f, phase_time_);
             Motor<2>::instance().move_traj_by_time(cmd_pos_M2_+0.0f, phase_time_);
             Motor<3>::instance().move_traj_by_time(cmd_pos_M3_+0.0f, phase_time_);
             Motor<8>::instance().move_traj_by_time(cmd_pos_M8_+0.0f, phase_time_);
-            get_voltage_position_delay(millis(), delay_);
+            delay(delay_);
 
             // send back
             Motor<1>::instance().move_traj_by_time(cmd_pos_M1_+0.02f, phase_time_);
             Motor<2>::instance().move_traj_by_time(cmd_pos_M2_-0.44f, phase_time_);
             Motor<3>::instance().move_traj_by_time(cmd_pos_M3_+0.02f, phase_time_);
             Motor<8>::instance().move_traj_by_time(cmd_pos_M8_-0.44f, phase_time_);
-            get_voltage_position_delay(millis(), delay_);
+            delay(delay_);
 
-            Serial.println("ending fast walking trot");
+            Serial.println("ending trot");
 
         } else if (buttons_ == LB) {
-            //                      SLOW Walking-Trot (Backwards)
-            Serial.println("Beginning walking trot");
+            //                      Trot (Backwards)
+            Serial.println("Beginning backwards trot");
             // raise TR&BL legs up
             Motor<6>::instance().move_traj_by_time(cmd_pos_M6_-0.5f, 0.1f);
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_-0.5f, 0.1f);
             Motor<5>::instance().move_traj_by_time(cmd_pos_M5_-0.5f, 0.1f);
             Motor<4>::instance().move_traj_by_time(cmd_pos_M4_-0.5f, 0.1f);
-            get_voltage_position_delay(millis(), 100);
+            delay(100);
 
             // step TR&BL forward
             Serial.println("step TR&BL forward");
@@ -410,47 +380,44 @@ public:
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_+0.3f, 0.1f);
             Motor<5>::instance().move_traj_by_time(cmd_pos_M5_-0.42f, 0.1f);
             Motor<4>::instance().move_traj_by_time(cmd_pos_M4_+0.3f, 0.1f);
-            get_voltage_position_delay(millis(), 100);
+            delay(100);
 
             // back to stance
             Motor<6>::instance().move_traj_by_time(cmd_pos_M6_+0.0f, 0.3f);
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_+0.0f, 0.3f);
             Motor<5>::instance().move_traj_by_time(cmd_pos_M5_+0.0f, 0.3f);
             Motor<4>::instance().move_traj_by_time(cmd_pos_M4_+0.0f, 0.3f);
-            get_voltage_position_delay(millis(), 125); // works as a delay
+            delay(125); // works as a delay
 
             // Raise TL&BR legs up
             Motor<2>::instance().move_traj_by_time(cmd_pos_M2_-0.5f, 0.1f);
             Motor<1>::instance().move_traj_by_time(cmd_pos_M1_-0.5f, 0.1f);
             Motor<8>::instance().move_traj_by_time(cmd_pos_M8_-0.5f, 0.1f);
             Motor<3>::instance().move_traj_by_time(cmd_pos_M3_-0.5f, 0.1f);
-            get_voltage_position_delay(millis(), 100);
+            delay(100);
 
             // step TL&BR forward
             Motor<2>::instance().move_traj_by_time(cmd_pos_M2_-0.42f, 0.1f);
             Motor<1>::instance().move_traj_by_time(cmd_pos_M1_+0.3f, 0.1f);
             Motor<8>::instance().move_traj_by_time(cmd_pos_M8_-0.42f, 0.1);
             Motor<3>::instance().move_traj_by_time(cmd_pos_M3_+0.3f, 0.1f);
-            get_voltage_position_delay(millis(), 100);
+            delay(100);
 
             // step back to standing stance
             Motor<2>::instance().move_traj_by_time(cmd_pos_M2_+0.0f, 0.3f);
             Motor<1>::instance().move_traj_by_time(cmd_pos_M1_+0.0f, 0.3f);
             Motor<8>::instance().move_traj_by_time(cmd_pos_M8_+0.0f, 0.3f);
             Motor<3>::instance().move_traj_by_time(cmd_pos_M3_+0.0f, 0.3f);
-            get_voltage_position_delay(millis(), 125);
-            Serial.println("ending walking trot");
+            delay(125);
+            Serial.println("ending backwards trot");
         }
     }
 
     void bound() {
         if (buttons_ == LT) {
             float phase_time = 0.03f;
-            int traj_time = 30;
-            uint32_t delay_ = 0;
-            //                      Bound Gait
+            // Bound Gait
             Serial.println("Beginning Bound");
-            float start_time = millis();
             Motor<6>::instance().move_traj_by_time(cmd_pos_M6_-0.5f, phase_time);
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_-0.5f, phase_time);
             Motor<8>::instance().move_traj_by_time(cmd_pos_M8_-0.5f, phase_time);
@@ -469,9 +436,8 @@ public:
             Motor<6>::instance().move_traj_by_time(cmd_pos_M6_+0.0f, phase_time);
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_+0.0f, phase_time);
 
-            get_voltage_position_delay(start_time, 90);
+            delay(90);
 
-            start_time = millis();
 
             // raise back slightly
             Motor<2>::instance().move_traj_by_time(cmd_pos_M2_-0.5f, phase_time);
@@ -491,7 +457,7 @@ public:
             Motor<5>::instance().move_traj_by_time(cmd_pos_M5_+0.0f, phase_time);
             Motor<4>::instance().move_traj_by_time(cmd_pos_M4_+0.0f, phase_time);
 
-            get_voltage_position_delay(start_time, 90);
+            delay(90);
             Serial.println("Ending Bound");
         }
     }
@@ -510,7 +476,7 @@ public:
                 Motor<7>::instance().move_traj_by_time(cmd_pos_M7_-0.9f, 2.0f);
                 Motor<5>::instance().move_traj_by_time(cmd_pos_M5_-0.9f, 2.0f);
                 Motor<4>::instance().move_traj_by_time(cmd_pos_M4_-0.9f, 2.0f);
-                get_voltage_position_delay(millis(), 2000);
+                delay(2000);
 
                 // extend all legs quickly
                 Motor<2>::instance().move_traj_by_time(cmd_pos_M2_+0.8f, 0.03f);
@@ -521,7 +487,7 @@ public:
                 Motor<7>::instance().move_traj_by_time(cmd_pos_M7_+0.8f, 0.03f);
                 Motor<5>::instance().move_traj_by_time(cmd_pos_M5_+0.8f, 0.03f);
                 Motor<4>::instance().move_traj_by_time(cmd_pos_M4_+0.8f, 0.03f);
-                get_voltage_position_delay(millis(), 100);
+                delay(100);
 
                 // bring in legs
                 Motor<2>::instance().move_traj_by_time(cmd_pos_M2_-0.4f, 0.05f);
@@ -532,9 +498,8 @@ public:
                 Motor<7>::instance().move_traj_by_time(cmd_pos_M7_-0.4f, 0.05f);
                 Motor<5>::instance().move_traj_by_time(cmd_pos_M5_-0.4f, 0.05f);
                 Motor<4>::instance().move_traj_by_time(cmd_pos_M4_-0.4f, 0.05f);
-                get_voltage_position_delay(millis(), 100);
 
-                get_voltage_position_delay(millis(), 1500); // delay
+                delay(1750); // delay
 
                 // back to standing
                 Motor<2>::instance().move_traj_by_time(cmd_pos_M2_+0.0f, 2.0f);
@@ -545,7 +510,7 @@ public:
                 Motor<7>::instance().move_traj_by_time(cmd_pos_M7_+0.0f, 2.0f);
                 Motor<5>::instance().move_traj_by_time(cmd_pos_M5_+0.0f, 2.0f);
                 Motor<4>::instance().move_traj_by_time(cmd_pos_M4_+0.0f, 2.0f);
-                get_voltage_position_delay(millis(), 2000);
+                delay(2000);
                 }
             else {
                 //              robot is in spider stance
@@ -559,7 +524,7 @@ public:
                 Motor<3>::instance().move_traj_by_time(cmd_pos_M3_-0.9f, 2.0f);
                 Motor<6>::instance().move_traj_by_time(cmd_pos_M6_-0.9f, 2.0f);
                 Motor<7>::instance().move_traj_by_time(cmd_pos_M7_-0.9f, 2.0f);
-                get_voltage_position_delay(millis(), 2000);
+                delay(2000);
 
                 // extend all legs quickly
                 Motor<2>::instance().move_traj_by_time(cmd_pos_M2_-0.9f, 0.03f);
@@ -571,7 +536,7 @@ public:
                 Motor<3>::instance().move_traj_by_time(cmd_pos_M3_+0.9f, 0.03f);
                 Motor<6>::instance().move_traj_by_time(cmd_pos_M6_+0.9f, 0.03f);
                 Motor<7>::instance().move_traj_by_time(cmd_pos_M7_+0.9f, 0.03f);
-                get_voltage_position_delay(millis(), 100);
+                delay(100);
 
                 // bring in legs quickly
                 Motor<2>::instance().move_traj_by_time(cmd_pos_M2_+0.4f, 0.05f);
@@ -583,7 +548,7 @@ public:
                 Motor<3>::instance().move_traj_by_time(cmd_pos_M3_-0.4f, 0.05f);
                 Motor<6>::instance().move_traj_by_time(cmd_pos_M6_-0.4f, 0.05f);
                 Motor<7>::instance().move_traj_by_time(cmd_pos_M7_-0.4f, 0.05f);
-                get_voltage_position_delay(millis(), 100);
+                delay(100);
 
                 // back to standing
                 Motor<2>::instance().move_traj_by_time(cmd_pos_M2_+0.0f, 2.0f);
@@ -595,7 +560,7 @@ public:
                 Motor<3>::instance().move_traj_by_time(cmd_pos_M3_+0.0f, 2.0f);
                 Motor<6>::instance().move_traj_by_time(cmd_pos_M6_+0.0f, 2.0f);
                 Motor<7>::instance().move_traj_by_time(cmd_pos_M7_+0.0f, 2.0f);
-                get_voltage_position_delay(millis(), 2000);
+                delay(2000);
             }
             Serial.println("ending hop");
         }
@@ -612,8 +577,7 @@ public:
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_+0.3f, 1.0f);
             Motor<8>::instance().move_traj_by_time(cmd_pos_M8_+0.3f, 1.0f);
             Motor<3>::instance().move_traj_by_time(cmd_pos_M3_+0.3f, 1.0f);
-            get_voltage_position_delay(millis(), 1000);
-            delay(1000); // prevent spam
+            delay(2000);
             // udpdate positions
             cmd_pos_M1_ = cmd_pos_M1_+0.3f;
             cmd_pos_M2_ = cmd_pos_M2_+0.3f;
@@ -639,9 +603,8 @@ public:
             Motor<6>::instance().move_traj_by_time(cmd_pos_M6_+0.0f, 1.0f);
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_+0.0f, 1.0f);
             Motor<8>::instance().move_traj_by_time(cmd_pos_M8_+0.0f, 1.0f);
-            get_voltage_position_delay(millis(), 1000);
+            delay(2000);
 
-            delay(1000);
             Motor<1>::instance().move_traj_by_time(cmd_pos_M1_-0.3f, 1.0f);
             Motor<2>::instance().move_traj_by_time(cmd_pos_M2_-0.3f, 1.0f);
             Motor<4>::instance().move_traj_by_time(cmd_pos_M4_-0.3f, 1.0f);
@@ -650,9 +613,8 @@ public:
             Motor<7>::instance().move_traj_by_time(cmd_pos_M7_-0.3f, 1.0f);
             Motor<8>::instance().move_traj_by_time(cmd_pos_M8_-0.3f, 1.0f);
             Motor<3>::instance().move_traj_by_time(cmd_pos_M3_-0.3f, 1.0f);
-            get_voltage_position_delay(millis(), 1000);
+            delay(2000);
 
-            delay(1000); // prevent spam
             // udpdate positions
             cmd_pos_M1_ = cmd_pos_M1_-0.3f;
             cmd_pos_M2_ = cmd_pos_M2_-0.3f;
@@ -687,276 +649,17 @@ public:
     }
 
     void motions() {
-        Microtaur::instance().stand();               // start
-        Microtaur::instance().sit();                 // back
-        Microtaur::instance().walk();                // X-fwd, LB-bck
-        Microtaur::instance().hop();                 // RT
-        Microtaur::instance().bound();               // LT
-        Microtaur::instance().compress_legs();       // B
-        Microtaur::instance().extend_legs();         // Y
-        // // Microtaur::instance().go_into_spider_mode(); // left knoch
-        // Microtaur::instance().revert_spider_mode();  // right knoch
-        Microtaur::instance().leap();                // RB
-        // Microtaur::instance().manual_get_voltage();  // left knoch
-        // Microtaur::instance().voltage_readings(1);
-        // Microtaur::instance().activateCoast();       // right knoch
-        // Microtaur::instance().slow_bound();          // TBD
-        // Microtaur::instance().getPos();              // left knoch
-        // Microtaur::instance().test_comms();          // testing motors
-
-
-        if (buttons_ != 0) { // if a button is pressed: report pressed button
-            Serial.println(buttons_);
-        }
-
-        buttons_ = 0; // resets buttons_
-
-
+      Microtaur::instance().stand();               // start
+      Microtaur::instance().sit();                 // back
+      Microtaur::instance().trot();                // X-fwd, LB-bck
+      Microtaur::instance().hop();                 // RT
+    //   Microtaur::instance().bound();               // LT // this is very strenuous on the legs, be careful, can break
+      Microtaur::instance().compress_legs();       // B
+      Microtaur::instance().extend_legs();         // Y
+      Microtaur::instance().leap();                // RB
+      if (buttons_ != 0) {
+        Serial.println(buttons_);
+      }
+      buttons_ = 0;
     }
-
-
-    void print_headers() {
-        Serial.println("Time, M1, M2, M4, M5, M6, M7, M8, M3, P1, P2, P4, P5, P6, P7, P8, P3");
-    }
-
-    void get_voltage_position_delay(uint32_t start_time, uint32_t duration) {
-        print_headers();
-        // Timer3.restart();
-        while (millis() < start_time + duration) {
-            voltage_readings(millis()); // printing out real time
-            update_voltages_positions();
-        }
-        // Timer3.stop();
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//////////////////////////// Debugging functions ///////////////////////////////
-    void test_comms() { // testing motor comms
-
-        // Motor<1>::instance().move_traj_by_time(0.0f, 1.0f);
-        // delay(3000);
-        // Motor<1>::instance().move_traj_by_time(3.14f, 1.0f);
-        // delay(3000);
-
-        // Motor<2>::instance().move_traj_by_time(3.14f, 1.0f);
-        // delay(3000);
-        // Motor<2>::instance().move_traj_by_time(3.14f, 1.0f);
-        // delay(3000);
-
-        // Motor<3>::instance().move_traj_by_time(3.14f, 1.0f);
-        // delay(3000);
-        // Motor<3>::instance().move_traj_by_time(3.14f, 1.0f);
-        // delay(3000);
-
-        // Motor<4>::instance().move_traj_by_time(0.0f, 1.0f);
-        // delay(3000);
-        // Motor<4>::instance().move_traj_by_time(3.14f, 1.0f);
-        // delay(3000);
-
-        // Motor<5>::instance().move_traj_by_time(0.0f, 1.0f);
-        // delay(3000);
-        // Motor<5>::instance().move_traj_by_time(3.14f, 1.0f);
-        // delay(3000);
-
-        // Motor<6>::instance().move_traj_by_time(3.14f, 1.0f);
-        // delay(3000);
-        // Motor<6>::instance().move_traj_by_time(3.14f, 1.0f);
-        // delay(3000);
-
-        // Motor<7>::instance().move_traj_by_time(3.14f, 1.0f);
-        // delay(3000);
-        // Motor<7>::instance().move_traj_by_time(3.14f, 1.0f);
-        // delay(3000);
-
-        // Motor<8>::instance().move_traj_by_time(0.0f, 1.0f);
-        // delay(3000);
-        // Motor<8>::instance().move_traj_by_time(3.14f, 1.0f);
-        // delay(3000);
-
-        delay(10000); // delay 10 secs
-    }
-
-
-    void manual_get_voltage() {
-        if (buttons_ == left_knoch_click_down) {
-            voltage_readings(millis());
-            update_voltages_positions();
-        }
-    }
-
-    void voltage_readings(uint32_t time) {
-        // Serial.print(time); Serial.print(", ");
-        // Serial.print(Motor<1>::instance().get_volts()); Serial.print(", ");
-        // Serial.print(Motor<2>::instance().get_volts()); Serial.print(" \n");
-
-        // Serial.print(Motor<4>::instance().get_volts()); Serial.print(", ");
-        // Serial.print(Motor<5>::instance().get_volts()); Serial.print(" \n");
-
-        // Serial.print(Motor<6>::instance().get_volts()); Serial.print(", ");
-        // Serial.print(Motor<7>::instance().get_volts()); Serial.print(", ");
-
-        Serial.print(Motor<8>::instance().get_volts()); Serial.print(", ");
-        Serial.print(Motor<3>::instance().get_volts()); Serial.print(" \n");
-    }
-
-    void incrementKd() {
-        if (buttons_ == A) {
-            Kd_ = Kd_ + (float)0.1f;
-            Serial.println("-----Kd incremented (+1)------");
-            delay(1000);
-        }
-    }
-
-    void incrementKp() {
-        if (buttons_ == B) {
-            Kp_ = Kp_ + (float)10.0f;
-            Serial.println("-----Kp incremented (+10)------");
-            delay(1000);
-        }
-    }
-
-    void incrementKi() {
-        if (buttons_ == Y) {
-            Ki_ = Ki_ + (float)10.0f;
-            Serial.println("-----Ki incremented (+10)------");
-            delay(1000);
-
-        }
-    }
-
-    void updateGains() {
-        Serial.println("gains updated");
-        Motor<2>::instance().set_gains(Kp_, Ki_, Kd_);
-    }
-
-    void kill() {
-        if (buttons_ == X) {
-            Serial.println("motor stopped");
-            Motor<2>::instance().set_coast_mode();
-        }
-    }
-
-    void moveMotor() {
-    if (buttons_ == start) {
-        Serial.println("Moving...");
-        Motor<1>::instance().move_traj_by_time(0.0f, 1.0f);
-        Motor<2>::instance().move_traj_by_time(2.50f, 1.0f);
-        delay(1000);
-    }
-    }
-
-    void raiselegs() {
-    if (buttons_ == RT) {
-        // raise TR&BL legs up
-        Motor<6>::instance().move_traj_by_time(-0.5f, 1.0f);
-        Motor<7>::instance().move_traj_by_time(-0.5f, 1.0f);
-        Motor<5>::instance().move_traj_by_time(-0.5f, 1.0f);
-        Motor<4>::instance().move_traj_by_time(-0.5f, 1.0f);
-        // step TR&BL forward
-        Motor<6>::instance().set_coast_mode();
-        Motor<7>::instance().set_coast_mode();
-        Motor<5>::instance().set_coast_mode();
-        Motor<4>::instance().set_coast_mode();
-        delay(2000);
-    }
-    }
-
-    void getPos() {
-    if (buttons_ == left_knoch_click_down) {
-    // Motor<1>::instance().set_coast_mode();
-    // Motor<2>::instance().set_coast_mode();
-        Serial.print("Motor 6:");
-        Serial.print(Motor<6>::instance().get_location());
-        Serial.print(" Motor 7: ");
-        Serial.print(Motor<2>::instance().get_location());
-        Serial.print("\n");
-        }
-    }
-
-    void activateCoast() {
-        if (buttons_ == right_knoch_click_down) {
-            Motor<6>::instance().set_coast_mode();
-            Motor<7>::instance().set_coast_mode();
-        }
-    }
-    void recordPos() {
-        if (buttons_ == left_knoch_click_down) {
-            Serial.print("M6: "); Serial.print(Motor<6>::instance().get_location());
-            Serial.print(" M7: "); Serial.print(Motor<7>::instance().get_location());
-            Serial.print("\n");
-        }
-    }
-
-
 };
-
-
-// Notes on controls
-// Motors: Clockwise == Positive dir.
-//         Counter == Negative dir.
-
-
-// Joystick Button Encoding: in terms of bitset
-// X -> 0000 0000 0001
-// A -> 0000 0000 0010
-// B -> 0000 0000 0100
-// Y -> 0000 0000 1000
-// Start -> 0010 0000 0000
-// Back -> 0001 0000 0000
-// Right knoch click-down -> 1000 0000 0000
-// Left knoch click-down -> 0100 0000 0000
-// LT -> 0000 0100 0000
-// LB -> 0000 0001 0000
-// RT -> 0000 1000 0000
-// RB -> 0000 0010 0000
-
-// Joystick Button Encoding: in terms of uint32_t
-// X -> 1
-// A -> 2
-// B -> 4
-// Y -> 8
-// Start -> 512
-// Back -> 256
-// Right knoch click-down -> 2048
-// Left knoch click-down -> 1024
-// LT -> 64
-// LB -> 16
-// RT -> 128
-// RB -> 32
-
-// D-Pad Controls: Axes[0, 1]
-// Horizontal:
-//    Base (untouched) -> 128
-//    Left Pressed -> 0
-//    Right pressed -> 255
-//
-// Vertical:
-//    Base (untouched) -> 127
-//    Up Pressed -> 0
-//    Down Pressed -> 255
-
-// Joystick: similar to D-Pad ; Axes[2, 5]
-
-

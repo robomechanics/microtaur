@@ -1,0 +1,49 @@
+
+Notes on controls
+Motors: 
+    Clockwise == Positive dir.
+    Counter == Negative dir.
+
+
+Joystick Button Encoding: in terms of bitset
+X -> 0000 0000 0001
+A -> 0000 0000 0010
+B -> 0000 0000 0100
+Y -> 0000 0000 1000
+Start -> 0010 0000 0000
+Back -> 0001 0000 0000
+Right knoch click-down -> 1000 0000 0000
+Left knoch click-down -> 0100 0000 0000
+LT -> 0000 0100 0000
+LB -> 0000 0001 0000
+RT -> 0000 1000 0000
+RB -> 0000 0010 0000
+
+Joystick Button Encoding: in terms of uint32_t
+X -> 1
+A -> 2
+B -> 4
+Y -> 8
+Start -> 512
+Back -> 256
+Right knoch click-down -> 2048
+Left knoch click-down -> 1024
+LT -> 64
+LB -> 16
+RT -> 128
+RB -> 32
+
+D-Pad Controls: Axes[0, 1]
+Horizontal:
+   Base (untouched) -> 128
+   Left Pressed -> 0
+   Right pressed -> 255
+
+Vertical:
+   Base (untouched) -> 127
+   Up Pressed -> 0
+   Down Pressed -> 255
+
+Joystick: similar to D-Pad ; Axes[2, 5]
+
+

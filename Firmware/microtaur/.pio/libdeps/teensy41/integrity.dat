@@ -1,0 +1,5 @@
+contrem/arduino-timer@^2.3.1
+arduino-libraries/BNO055 @ ^1.2.1
+https://github.com/greiman/ChRt.git
+https://github.com/robomechanics/iq-module-communication-arduino.git
+https://github.com/PaulStoffregen/USBHost_t36.git
